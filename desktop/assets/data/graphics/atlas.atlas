@@ -1,0 +1,467 @@
+
+atlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+menu
+  rotate: false
+  xy: 1, 418
+  size: 800, 600
+  orig: 800, 600
+  offset: 0, 0
+  index: -1
+clouds
+  rotate: false
+  xy: 1, 249
+  size: 512, 167
+  orig: 512, 167
+  offset: 0, 0
+  index: -1
+player_punch0
+  rotate: false
+  xy: 1, 215
+  size: 448, 32
+  orig: 448, 32
+  offset: 0, 0
+  index: -1
+player_punch1
+  rotate: false
+  xy: 1, 181
+  size: 448, 32
+  orig: 448, 32
+  offset: 0, 0
+  index: -1
+arrows
+  rotate: false
+  xy: 515, 160
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+player_move_onehand
+  rotate: false
+  xy: 1, 147
+  size: 320, 32
+  orig: 320, 32
+  offset: 0, 0
+  index: -1
+player_move_twohand
+  rotate: false
+  xy: 1, 113
+  size: 320, 32
+  orig: 320, 32
+  offset: 0, 0
+  index: -1
+zombie3
+  rotate: false
+  xy: 1, 79
+  size: 320, 32
+  orig: 320, 32
+  offset: 0, 0
+  index: -1
+nophoto
+  rotate: false
+  xy: 803, 843
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+zombie1
+  rotate: false
+  xy: 1, 45
+  size: 256, 32
+  orig: 256, 32
+  offset: 0, 0
+  index: -1
+zombie1_attack0
+  rotate: false
+  xy: 1, 11
+  size: 256, 32
+  orig: 256, 32
+  offset: 0, 0
+  index: -1
+player
+  rotate: false
+  xy: 803, 809
+  size: 192, 32
+  orig: 192, 32
+  offset: 0, 0
+  index: -1
+car0
+  rotate: false
+  xy: 803, 679
+  size: 64, 128
+  orig: 64, 128
+  offset: 0, 0
+  index: -1
+sofa
+  rotate: false
+  xy: 803, 549
+  size: 48, 128
+  orig: 48, 128
+  offset: 0, 0
+  index: -1
+zombie1_die
+  rotate: false
+  xy: 323, 147
+  size: 160, 32
+  orig: 160, 32
+  offset: 0, 0
+  index: -1
+zombie2_die
+  rotate: false
+  xy: 323, 147
+  size: 160, 32
+  orig: 160, 32
+  offset: 0, 0
+  index: -1
+zombie1_attack1
+  rotate: false
+  xy: 485, 126
+  size: 256, 32
+  orig: 256, 32
+  offset: 0, 0
+  index: -1
+achieve
+  rotate: false
+  xy: 869, 743
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+chair
+  rotate: false
+  xy: 323, 81
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+zombie2
+  rotate: false
+  xy: 389, 92
+  size: 256, 32
+  orig: 256, 32
+  offset: 0, 0
+  index: -1
+icon_menu
+  rotate: false
+  xy: 259, 13
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+knob
+  rotate: false
+  xy: 869, 677
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+civilian1
+  rotate: false
+  xy: 647, 88
+  size: 72, 36
+  orig: 72, 36
+  offset: 0, 0
+  index: -1
+icon_char
+  rotate: false
+  xy: 451, 197
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+arrow
+  rotate: false
+  xy: 980, 954
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: -1
+player_onehand
+  rotate: false
+  xy: 935, 775
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+player_rocket
+  rotate: false
+  xy: 935, 741
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+player_twohand
+  rotate: false
+  xy: 935, 707
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+weapon2
+  rotate: false
+  xy: 325, 47
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+weapon3
+  rotate: false
+  xy: 325, 13
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+weapon4
+  rotate: false
+  xy: 935, 673
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+weapon5
+  rotate: false
+  xy: 391, 58
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+icon_shop
+  rotate: false
+  xy: 803, 507
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+ammo0
+  rotate: false
+  xy: 980, 920
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+ammo1
+  rotate: false
+  xy: 391, 24
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+ammo2
+  rotate: false
+  xy: 457, 58
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+ammo3
+  rotate: false
+  xy: 803, 473
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+ammo4
+  rotate: false
+  xy: 980, 886
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+barrel0
+  rotate: false
+  xy: 425, 24
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+box0
+  rotate: false
+  xy: 491, 58
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+box1
+  rotate: false
+  xy: 803, 439
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+box2
+  rotate: false
+  xy: 980, 852
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+door1
+  rotate: false
+  xy: 459, 24
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+door1_open
+  rotate: false
+  xy: 525, 58
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+explosive0
+  rotate: false
+  xy: 493, 24
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+explosive1
+  rotate: false
+  xy: 559, 58
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+explosive2
+  rotate: false
+  xy: 527, 24
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+first_aid_kit
+  rotate: false
+  xy: 593, 58
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+hole0
+  rotate: false
+  xy: 561, 24
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+meat0
+  rotate: false
+  xy: 595, 24
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+meat1
+  rotate: false
+  xy: 773, 384
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+meat2
+  rotate: false
+  xy: 773, 350
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+particle
+  rotate: false
+  xy: 773, 316
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+weapon0
+  rotate: false
+  xy: 773, 282
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+weapon1
+  rotate: false
+  xy: 773, 248
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+weapon6
+  rotate: false
+  xy: 773, 214
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+bar_back
+  rotate: false
+  xy: 627, 58
+  size: 2, 32
+  orig: 2, 32
+  offset: 0, 0
+  index: -1
+exp_bar
+  rotate: false
+  xy: 743, 126
+  size: 2, 32
+  orig: 2, 32
+  offset: 0, 0
+  index: -1
+hp_bar
+  rotate: false
+  xy: 853, 645
+  size: 2, 32
+  orig: 2, 32
+  offset: 0, 0
+  index: -1
+mp_bar
+  rotate: false
+  xy: 721, 92
+  size: 2, 32
+  orig: 2, 32
+  offset: 0, 0
+  index: -1
+table_back
+  rotate: false
+  xy: 503, 215
+  size: 2, 32
+  orig: 2, 32
+  offset: 0, 0
+  index: -1
+arrow_up
+  rotate: false
+  xy: 389, 129
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+light0
+  rotate: false
+  xy: 803, 421
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bullet0
+  rotate: false
+  xy: 1014, 1002
+  size: 2, 16
+  orig: 2, 16
+  offset: 0, 0
+  index: -1
+rocket
+  rotate: false
+  xy: 1, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+shell
+  rotate: false
+  xy: 451, 187
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1

@@ -1,6 +1,0 @@
-<materials>
-	<material name="metal" sound="iron_" soundcount="3" diesound="iron_1" />
-	<material name="wood" sound="wood_" soundcount="3" diesound="wood_3" />
-	<material name="zombie" sound="zombie_" soundcount="5" diesound="zombie_5" />
-	<material name="player" sound="punch_" soundcount="3" diesound="punch_2" />
-</materials>

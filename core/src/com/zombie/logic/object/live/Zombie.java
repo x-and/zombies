@@ -138,7 +138,7 @@ public class Zombie extends LiveObject {
 	}
 	
 	protected void playSound() {
-		SoundUtils.playSound(ResourceManager.getSound("zombie_"+Rnd.nextInt(6)),pos.current,this);
+		SoundUtils.playSound(ResourceManager.getSound("zombie_"+Rnd.nextInt(8)),pos.current,this);
 	}
 
 }

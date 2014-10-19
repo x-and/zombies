@@ -48,7 +48,6 @@ public class GameWorld {
     			removeEffect(e);
     		}	
        	}
-       	
        	TimeManager.getInstance().update(delta);
 	}	
 
@@ -77,6 +76,7 @@ public class GameWorld {
 		QuestManager.levelLoaded();
 		PathFindingManager.init(level);
 		GameState.getInstance().startLevel(level);
+		TimeManager.getInstance().init();
 		Log.info("world", "Level \""+level.name+"\" init complete");
 	}
 	

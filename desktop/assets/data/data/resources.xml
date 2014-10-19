@@ -174,6 +174,8 @@
 	<resource type="sound" id="zombie_3" radius="500">data/sound/zombie_3.mp3</resource>
 	<resource type="sound" id="zombie_4" radius="500">data/sound/zombie_4.mp3</resource>
 	<resource type="sound" id="zombie_5" radius="500">data/sound/zombie_5.mp3</resource>
+	<resource type="sound" id="zombie_6" radius="500">data/sound/zombie_6.wav</resource>
+	<resource type="sound" id="zombie_7" radius="500">data/sound/zombie_7.wav</resource>
 	
 	<resource type="sound" id="click" radius="0">data/sound/click.mp3</resource>
 	<resource type="sound" id="engine" radius="1000">data/sound/engine.wav</resource>

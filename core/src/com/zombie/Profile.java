@@ -22,6 +22,7 @@ public class Profile implements Serializable{
 	public List<Integer> levelsPassed = new ArrayList<Integer>();
 	public Save save = new Save();
 	public String name;
+	public String lang = "EN";
 	
 	public static void init(){
 		profiles = new Profile[3];
@@ -90,6 +91,7 @@ public class Profile implements Serializable{
 		C.PROFILE = object;
 		C.lastProfile = object.name;
 		C.APP.save();
+		C.lang = object.lang;
 		updateProfilesUI();
 	}
 	

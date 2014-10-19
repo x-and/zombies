@@ -46,8 +46,6 @@ public class Physics implements Runnable{
 			long sleep = 1000/hertz-elapsed;
 			if (sleep < 0)
 				sleep = 0;
-//			if (elapsed != 0)
-//				Log.info("physics", "start "+ started + "   elapsed " + elapsed + "    sleep time " + (1000/hertz-elapsed));
 			try {
 				Thread.sleep(sleep);
 			} catch (InterruptedException e) {
@@ -55,14 +53,12 @@ public class Physics implements Runnable{
 			}
 		}
 	}
-	
 	public void update(){
 		if (world == null)
 			return;
 		float time = 1000f/hertz/1000f;
 		try{
-			LightManager.update();
-			
+			LightManager.update(time);
 			while(!tasks.isEmpty())
 				tasks.poll().run();
 			world.step(time, 3, 3);

@@ -222,9 +222,11 @@ public class RayHandler implements Disposable {
 	                  lightList.removeValue(l, false);
 	                  l.lightMesh.dispose();
 	                  l.softShadowMesh.dispose();
+	                  
                   } else
                       l.update();
                 }
+
         }
 
         /**

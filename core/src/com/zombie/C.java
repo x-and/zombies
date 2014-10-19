@@ -55,8 +55,6 @@ public class C {
 
 	public static long BLOOD_EFFECT_TIME = 30000;
 
-	public static String lang;
-
 
 	public static class APP{
 

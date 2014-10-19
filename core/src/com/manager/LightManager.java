@@ -1,16 +1,15 @@
 package com.manager;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.physics.box2d.Filter;
 import com.droidinteractive.box2dlight.Light;
 import com.droidinteractive.box2dlight.RayHandler;
 import com.esotericsoftware.minlog.Log;
-import com.manager.TimeManager.Time;
-import com.manager.TimeManager.TimeChangeListener;
 import com.physics.Physics;
 
-public class LightManager  implements TimeChangeListener{
+public class LightManager {
 
 	public static RayHandler handler;
 	public static Color ambient = new Color(Color.DARK_GRAY).mul(0.2f);
@@ -26,6 +25,7 @@ public class LightManager  implements TimeChangeListener{
 		handler.setShadows(true);
 		handler.setBlur(true);
 		handler.setAmbientLight(ambient);
+		
 		RayHandler.isDiffuse = true;
 		RayHandler.shaderDiffuse = 10;
 
@@ -44,21 +44,9 @@ public class LightManager  implements TimeChangeListener{
 			handler.setCombinedMatrix(combined);
 	}
 	
-	static Color to = new Color();
-	static float time;
-	
-	public static void update(float delta){
+	public static void update(){
 		if (handler != null)
 			handler.update();
-		delta*=1000;
-		if (time != 0){
-			ambient.lerp(to, time/TimeManager.getTimeFor(TimeManager.currentTime));
-			time -=delta;
-			if (time < 0)
-				time = 0;
-			System.out.println(time + " _ " + delta);
-			handler.setAmbientLight(ambient);
-		}
 	}
 
 	public static boolean pointAtLight(float x, float y) {
@@ -67,16 +55,28 @@ public class LightManager  implements TimeChangeListener{
 		return handler.pointAtLight(x, y);
 	}
 	
-	@Override
-	public void changed(Time newtime) {
-		if (newtime == Time.DAYTIME){
-			to.set(Color.WHITE).mul(0.6f);
-		} else if (newtime == Time.DUSKTIME || newtime == Time.DAWNTIME) {
-			to.set(Color.DARK_GRAY).mul(0.1f);
-		} else {  
-			to.set(Color.BLACK).mul(0.05f);
-		}
-		to.a = 1;
-		time = TimeManager.getTimeFor(newtime)/4;
+    static ShaderProgram shader;
+    
+	public static void startAmbientShader(){
+//		Gdx.gl20.glEnable(GL20.GL_BLEND);
+        shader = ResourceManager.getShader("shadow");
+        if (RayHandler.isDiffuse) {
+                shader = ResourceManager.getShader("diffuse");
+                shader.begin();
+//                Gdx.gl20.glBlendFunc(GL20.GL_DST_COLOR, GL20.GL_SRC_COLOR);
+                shader.setUniformf("ambient", ambient.r, ambient.g, ambient.b, ambient.a);
+        } else {
+                shader.begin();
+//                Gdx.gl20.glBlendFunc(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
+                shader.setUniformf("ambient", ambient.r * ambient.a, ambient.g * ambient.a,
+                		ambient.b * ambient.a, 1f - ambient.a);
+        }
 	}
+	
+	public static void endAmbientShader(){
+		shader.end();
+//		Gdx.gl20.glDisable(GL20.GL_BLEND);
+	}
+	
+	
 }

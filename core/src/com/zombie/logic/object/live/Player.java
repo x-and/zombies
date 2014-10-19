@@ -83,10 +83,7 @@ public class Player extends LiveObject {
 		setSize(28,28);
 		pickup(Weapon.getWeaponById(0).clone());
 		Arrays.fill(slots,-1);
-		super.setVelocity(0.7f);
-		calcVelocity();
-		calcDefence();
-		calcHealth();
+		super.setVelocity(1.0f);
 		shotPosOneHanded = new Vector2(32,8);
 		shotPosTwoHanded = new Vector2(36,4);
 		shotPosRocket = new Vector2(36,8);
@@ -98,23 +95,11 @@ public class Player extends LiveObject {
 		if (getStat().skillPoints < 1)
 			return;
 		getStat().agility+=1;
-		setVelocity(super.getVelocity() + getStat().agility/50f*1.1f);
-		getStat().evasion=getStat().agility*0.1f*1.1f; // 1f = 100%  0.1 = 10% 0.01 = 1% 
-		if (getStat().evasion > 0.3f)
-			getStat().evasion = 0.3f;
+		setVelocity(super.getVelocity() + getStat().agility/25f*1.4f);
+		getStat().evasion=getStat().agility*0.1f*1.5f; // 1f = 100%  0.1 = 10% 0.01 = 1% 
+		if (getStat().evasion > 0.5f)
+			getStat().evasion = 0.5f;
 		getStat().skillPoints--;
-	}
-	
-	void calcVelocity(){
-		setVelocity(super.getVelocity() + getStat().agility/50f*1.1f);
-	}
-	
-	void calcDefence(){
-		getStat().defence=getStat().strength/2-5;
-	}
-	
-	void calcHealth(){
-		setMaxHp((int) (super.getMaxHp() + (getStat().endurance*getStat().endurance)/6) - 10);
 	}
 	
 	public void upStrength(){
@@ -129,7 +114,7 @@ public class Player extends LiveObject {
 		if (getStat().skillPoints < 1)
 			return;
 		getStat().endurance+=1;
-		setMaxHp((int) (super.getMaxHp() + (getStat().endurance*getStat().endurance)/6) - 10);
+		setMaxHp((int) (super.getMaxHp() + (getStat().endurance*getStat().endurance)/10) - 10);
 		getStat().skillPoints--;
 	}		
 

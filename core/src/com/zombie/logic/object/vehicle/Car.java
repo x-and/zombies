@@ -119,7 +119,6 @@ public class Car extends Vehicle{
 	        	 wheel.body.applyForceToCenter(wheel.body.getWorldVector(new Vector2(forceVector.x, forceVector.y)),true);
 	        }
 	        pos.set(getBodyX(),getBodyY(),getBodyA());
-	        updateLights();
 		}};
 		
 	@Override
@@ -131,7 +130,7 @@ public class Car extends Vehicle{
 	    
 
        float scaleFactor = (1-getSpeedKMH()/maxSpeed)*1.2f;
-//        scaleFactor = Math.max(0.25f,scaleFactor);
+        scaleFactor = Math.max(0.25f,scaleFactor);
 //		calculate the change in wheel's angle for this updates
         float incr=(getStat().maxSteering) * delta;
         if(steer==Control.STEER_LEFT){
@@ -184,8 +183,11 @@ public class Car extends Vehicle{
         		forceVector.set(0, -0.9f);
         } else 
         	forceVector.set(0, 0);
+
         forceVector.scl(power);
+        updateLights();
 	}
+	
 	
 	private void stopLights(boolean b) {
 		if (!b) {
@@ -234,8 +236,8 @@ public class Car extends Vehicle{
 	protected void enableLights() {
 		if (frontLights == null){
 			frontLights = new Light[2];
-			frontLights[0] = new ConeLight(LightManager.handler, 8, Light.DefaultColor, 500, 0, 0, 90, 45);
-			frontLights[1] = new ConeLight(LightManager.handler, 8, Light.DefaultColor, 500, 0, 0, 90, 45);
+			frontLights[0] = new ConeLight(LightManager.handler, 8, Light.DefaultColor, 200, 0, 0, 90, 30);
+			frontLights[1] = new ConeLight(LightManager.handler, 8, Light.DefaultColor, 200, 0, 0, 90, 30);
 		}
 		
 		if (rearLights == null){

@@ -39,16 +39,14 @@ public class Options extends Window{
 	}
 
 	private void init() {
-
 		for(DisplayMode m : Gdx.graphics.getDisplayModes()){
-			if (m.bitsPerPixel < 24)
+			if (m.bitsPerPixel != 32)
 				continue;
 			if (m.width < 800 || m.height < 600)
 				continue;
 			modes.add(m);
 		}
-		if (modes.size == 0)
-			modes.add(Gdx.graphics.getDesktopDisplayMode());
+		
 		list = new SelectBox(modes.toArray(), C.UI.SKIN);
 		volume = new Slider(0f, 1f, 0.01f, false, com.zombie.C.UI.SKIN);
 		volume.setName("Volume");

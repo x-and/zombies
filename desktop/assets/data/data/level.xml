@@ -9,7 +9,7 @@
 			<!-- fast mob -->
 			<mob id="2"	class="Zombie"			name="Zombie"	image="zombie1"	velocity="0.85f:1f"		lvl="2" hp="20:40"		damage="10:15"/>
 			<!-- laying mob -->
-			<mob id="3"	class="CrawlingZombie"	name="Zombie"	image="zombie3"	velocity="0.35f:0.45f"		lvl="2" hp="300:500"	damage="25:25"	defence="2"	evasion="0.33f" size="52:24"/>
+			<mob id="3"	class="CrawlingZombie"	name="Zombie"	image="zombie3"	velocity="0.35f:0.45f"		lvl="2" hp="300:500"	damage="25:25"	defence="2"	evasion="0.33f" size="50:24"/>
 			<!-- simple hard mob -->
 		    <wave id="0">
 		        <spawn count="40" id="0" mobId="0" spawnPoint="0" time="0"/>

@@ -61,7 +61,7 @@ public class Character extends Table {
 		super(skin);
 		init();
 	}
-
+	
 	void setPadding(Table t){
 		t.defaults().space(C.UI.SPACING/4,C.UI.SPACING/4,0,C.UI.SPACING/4);
 		t.defaults().pad(C.UI.SPACING/4,C.UI.SPACING/4,0,C.UI.SPACING/4);

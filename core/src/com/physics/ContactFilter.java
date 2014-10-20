@@ -1,6 +1,9 @@
 package com.physics;
 
-import static com.zombie.logic.enums.ObjectType.*;
+import static com.zombie.logic.enums.ObjectType.BULLET;
+import static com.zombie.logic.enums.ObjectType.DOOR;
+import static com.zombie.logic.enums.ObjectType.EXPLOSIVE;
+import static com.zombie.logic.enums.ObjectType.LIVE;
 
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.zombie.logic.object.Bullet;

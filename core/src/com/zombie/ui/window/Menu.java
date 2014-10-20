@@ -35,7 +35,7 @@ public class Menu extends Actor {
 	public Menu() {
 		init();
 	}
-
+	
 	private void init() {
 		
 		float h = Gdx.graphics.getHeight()/2;

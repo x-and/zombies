@@ -12,71 +12,98 @@ import com.physics.Physics;
 
 public class LightManager  implements TimeChangeListener{
 
-	public static RayHandler handler;
-	public static Color ambient = new Color(Color.DARK_GRAY).mul(0.2f);
+	private RayHandler handler;
+	private Color ambient = new Color(Color.DARK_GRAY).mul(0.2f);
+	
+	public static RayHandler getHandler(){
+		return getInstance().handler;
+	}
 	
 	public static void initLights() {
-		ambient.a = 1;
-		if (handler != null){
-			handler.clear();
-			handler.setWorld(Physics.world);
+		getAmbient().a = 1;
+		if (getHandler() != null){
+			getHandler().clear();
+			getHandler().setWorld(Physics.world);
 		} else
-			handler = new RayHandler(Physics.world); 
-		handler.setCulling(true);
-		handler.setShadows(true);
-		handler.setBlur(true);
-		handler.setAmbientLight(ambient);
+			setHandler(new RayHandler(Physics.world)); 
+		getHandler().setCulling(true);
+		getHandler().setShadows(true);
+		getHandler().setBlur(true);
+		getHandler().setAmbientLight(getAmbient());
 		RayHandler.isDiffuse = true;
 		RayHandler.shaderDiffuse = 10;
 
 		Light.setContactFilter(new Filter());
 	}
 	
+	private static void setHandler(RayHandler rayHandler) {
+		getInstance().handler = rayHandler;
+	}
+
 	public static void render(){
-		if (handler != null)
+		if (getHandler() != null)
 			try{
-			handler.render();
+				getHandler().render();
 			} catch(Exception e){Log.error("LightManager", e);}
 	}
 
 	public static void setCombinedMatrix(Matrix4 combined) {
-		if (handler != null)
-			handler.setCombinedMatrix(combined);
+		if (getHandler() != null)
+			getHandler().setCombinedMatrix(combined);
 	}
 	
 	static Color to = new Color();
-	static float time;
+	static float time,totaltime;
 	
 	public static void update(float delta){
-		if (handler != null)
-			handler.update();
+		if (getHandler() != null)
+			getHandler().update();
 		delta*=1000;
 		if (time != 0){
-			ambient.lerp(to, time/TimeManager.getTimeFor(TimeManager.currentTime));
+			getAmbient().lerp(to, 1-time/totaltime);
 			time -=delta;
 			if (time < 0)
 				time = 0;
-			System.out.println(time + " _ " + delta);
-			handler.setAmbientLight(ambient);
+			getHandler().setAmbientLight(getAmbient());
 		}
 	}
 
 	public static boolean pointAtLight(float x, float y) {
-		if (handler == null)
+		if (getHandler() == null)
 			return false;
-		return handler.pointAtLight(x, y);
+		return getHandler().pointAtLight(x, y);
 	}
 	
 	@Override
 	public void changed(Time newtime) {
-		if (newtime == Time.DAYTIME){
+		if (newtime == Time.DAYTIME)
 			to.set(Color.WHITE).mul(0.6f);
-		} else if (newtime == Time.DUSKTIME || newtime == Time.DAWNTIME) {
-			to.set(Color.DARK_GRAY).mul(0.1f);
-		} else {  
-			to.set(Color.BLACK).mul(0.05f);
-		}
+		else if (newtime == Time.DUSKTIME || newtime == Time.DAWNTIME)
+			to.set(Color.BLACK).add(0.2f,0.2f,0.2f,0.2f);
+		else  
+			to.set(Color.BLACK).add(0.05f,0.05f,0.05f,0.05f);
 		to.a = 1;
-		time = TimeManager.getTimeFor(newtime)/4;
+		if (newtime == Time.DUSKTIME || newtime == Time.DAWNTIME)
+			totaltime = time = TimeManager.getTimeFor(newtime);
+		else 
+			totaltime = time = TimeManager.getTimeFor(newtime)/8;
 	}
+	
+	public static LightManager getInstance(){
+		return SingletonHolder._instance;
+	}
+
+	public static Color getAmbient() {
+		return getInstance().ambient;
+	}
+
+	public static void setAmbient(Color ambient) {
+		getInstance().ambient = ambient;
+	}
+
+	@SuppressWarnings("synthetic-access")
+	private static class SingletonHolder {
+		protected static final LightManager _instance = new LightManager();
+	}
+
 }

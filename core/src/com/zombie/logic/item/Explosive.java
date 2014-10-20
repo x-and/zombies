@@ -15,7 +15,8 @@ public class Explosive extends Item {
 	public boolean blowOnContact;
 	public String explodeSound = "explode_0";
 	public String explodeParticle = "explode_0";
-	public float detectorRadius;	
+	public float detectorRadius;
+	public boolean beepOnTimer = false;	
 	
 	public Explosive(){
 		type = ItemType.EXPLOSIVE;
@@ -46,7 +47,9 @@ public class Explosive extends Item {
 				else if (name.equalsIgnoreCase("particle_explode"))
 					explosive.explodeParticle = n.getTextContent();
 				else if (name.equalsIgnoreCase("detectorRadius"))
-					explosive.detectorRadius = Float.parseFloat(n.getTextContent());	
+					explosive.detectorRadius = Float.parseFloat(n.getTextContent());
+				else if (name.equalsIgnoreCase("beeponTimer"))
+					explosive.beepOnTimer  = Boolean.parseBoolean(n.getTextContent());
 			}
 		}
 		items.put(explosive.id, explosive);

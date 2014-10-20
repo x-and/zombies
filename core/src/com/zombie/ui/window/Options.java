@@ -37,7 +37,7 @@ public class Options extends Window{
 		super(title, skin);
 		init();
 	}
-
+	
 	private void init() {
 
 		for(DisplayMode m : Gdx.graphics.getDisplayModes()){

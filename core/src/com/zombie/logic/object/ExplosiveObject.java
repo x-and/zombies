@@ -64,7 +64,7 @@ public class ExplosiveObject extends ItemObject {
 
 	private void setCondition(Explosive it) {
 		if (it.condition.equalsIgnoreCase("timer")){
-			condition = new TimerCondition(it.timer);
+			condition = new TimerCondition(it.timer,it.beepOnTimer);
 		} else if (it.condition.equalsIgnoreCase("radio")){
 			condition = new RadioCondition();
 		} else if (it.condition.equalsIgnoreCase("detector")){
@@ -217,8 +217,10 @@ public class ExplosiveObject extends ItemObject {
 	
 	public class TimerCondition extends Condition{
 		public int timer = 1000;
-
-		public TimerCondition(int t) {
+		boolean beep = false;
+		
+		public TimerCondition(int t, boolean beepOnTimer) {
+			beep = beepOnTimer;
 			timer = t;
 		}
 
@@ -227,7 +229,6 @@ public class ExplosiveObject extends ItemObject {
 			timer-= delta*1000;
 			if (timer <= 0)
 				blow = true;
-
 			}
 	}
 	
@@ -267,26 +268,33 @@ public class ExplosiveObject extends ItemObject {
 		void update(float delta) {
 			if (blower != null)
 				return;
-			boolean needblow = false;
-			ListQueryCallback query = new ListQueryCallback();
-//			GameWorld.world.QueryAABB(query, (getX()-detectorRadius)*C.WORLD_TO_BOX,(getY()-detectorRadius)*C.WORLD_TO_BOX,
-//					(getX()+detectorRadius*2)*C.WORLD_TO_BOX,(getY()+detectorRadius*2)*C.WORLD_TO_BOX);
-			for(Body b : query.bodyes){
-				if (b.getUserData() instanceof Zombie){
-					needblow = true;
-					break;
-				}	
-			}
-			query.bodyes.clear();
-			query.bodyes = null;
-			query = null;
-			if (needblow)
-				blower = (Runnable) ThreadPoolManager.schedule(new Runnable(){
+			Physics.task(new Runnable(){
 
-					@Override
-					public void run() {
-						blow = true;
-					}}, 1000);
+				@Override
+				public void run() {
+					boolean needblow = false;
+					ListQueryCallback query = new ListQueryCallback();
+					Physics.world.QueryAABB(query, (getX()-detectorRadius)*C.WORLD_TO_BOX,(getY()-detectorRadius)*C.WORLD_TO_BOX,
+							(getX()+detectorRadius*2)*C.WORLD_TO_BOX,(getY()+detectorRadius*2)*C.WORLD_TO_BOX);
+					for(Body b : query.bodyes){
+						if (b.getUserData() instanceof Zombie){
+							needblow = true;
+							break;
+						}	
+					}
+					query.bodyes.clear();
+					query.bodyes = null;
+					query = null;
+
+					
+					if (needblow)
+						blower = (Runnable) ThreadPoolManager.schedule(new Runnable(){
+
+							@Override
+							public void run() {
+								blow = true;
+							}}, 1000);
+				}});
 		}
 	}	
 	

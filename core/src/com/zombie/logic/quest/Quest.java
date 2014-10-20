@@ -6,9 +6,9 @@ import com.zombie.logic.item.Item;
 import com.zombie.logic.object.GameObject;
 import com.zombie.logic.object.LiveObject;
 import com.zombie.logic.zone.Zone;
-import com.zombie.ui.QuestDialog;
+import com.zombie.ui.window.QuestDialog;
 
-//после создания квеста - регистриуем в менеджере. После этого квест будет получать все нужные ему события.
+//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 public abstract class Quest {
 
 	public String name;

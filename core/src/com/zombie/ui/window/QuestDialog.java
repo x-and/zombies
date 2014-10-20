@@ -1,4 +1,4 @@
-package com.zombie.ui;
+package com.zombie.ui.window;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.delay;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
@@ -43,7 +43,7 @@ public class QuestDialog extends Table {
 
 	}
 	
-	void resize(int w, int h) {
+	public void resize(int w, int h) {
 		setSize(w/3,h/6);
 		if (isVisible())
 			setPosition(0,0);

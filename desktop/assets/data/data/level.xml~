@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><levels>
+    <level icon="nophoto" id="0" name="DEMO">
+        <map backgroundCount="3" resource="new.tmx"/>
+		<waves>
+			<!-- simple mob -->
+			<mob id="0"	class="Zombie"			name="Zombie"	image="zombie1"	velocity="0.65f:0.85f"	lvl="1" hp="30:60"		damage="5:10"/>
+			<!-- big mob  a lot of hp -->
+			<mob id="1"	class="BearZombie"		name="Berserk"	image="zombie2"	velocity="0.45f:0.65f"	lvl="3" hp="200:250"	damage="15:30"	defence="5"/>
+			<!-- fast mob -->
+			<mob id="2"	class="Zombie"			name="Zombie"	image="zombie1"	velocity="0.85f:1f"		lvl="2" hp="20:40"		damage="10:15"/>
+			<!-- laying mob -->
+			<mob id="3"	class="CrawlingZombie"	name="Zombie"	image="zombie3"	velocity="0.35f:0.45f"		lvl="2" hp="300:500"	damage="25:25"	defence="2"	evasion="0.33f" size="52:24"/>
+			<!-- simple hard mob -->
+		    <wave id="0">
+		        <spawn count="40" id="0" mobId="0" spawnPoint="0" time="0"/>
+			<spawn count="20" id="0" mobId="0" spawnPoint="0" time="0"/>
+			<spawn count="20" id="0" mobId="0" spawnPoint="0" time="0"/>
+		        <spawn count="5" id="1" mobId="3" spawnPoint="1" time="0"/>
+		        <spawn count="3" id="2" mobId="1" spawnPoint="1" time="0"/>
+		        <spawn count="10" id="3" mobId="2" spawnPoint="1" time="0"/>
+		        <spawn count="10" id="4" mobId="2" spawnPoint="0" time="0"/>
+		        <spawn count="20" id="5" mobId="0" spawnPoint="1" time="60000"/>
+		        <spawn count="20" id="6" mobId="0" spawnPoint="0" time="60000"/>
+		        <spawn count="3" id="7" mobId="1" spawnPoint="0" time="60000"/>
+		        <spawn count="5" id="8" mobId="1" spawnPoint="0" time="90000"/>
+		        <spawn count="5" id="9" mobId="3" spawnPoint="0" time="90000"/>
+		    </wave>
+		    <wave id="1">
+		        <spawn count="40" id="0" mobId="0" spawnPoint="0" time="0"/>
+		        <spawn count="5" id="1" mobId="3" spawnPoint="1" time="0"/>
+		        <spawn count="10" id="2" mobId="2" spawnPoint="1" time="0"/>
+		        <spawn count="10" id="3" mobId="2" spawnPoint="0" time="0"/>
+		        <spawn count="3" id="4" mobId="1" spawnPoint="1" time="15000"/>
+		        <spawn count="20" id="5" mobId="0" spawnPoint="1" time="60000"/>
+		        <spawn count="20" id="6" mobId="0" spawnPoint="2" time="60000"/>
+		        <spawn count="3" id="7" mobId="1" spawnPoint="0" time="60000"/>
+		        <spawn count="5" id="8" mobId="1" spawnPoint="0" time="90000"/>
+		        <spawn count="5" id="9" mobId="3" spawnPoint="1" time="90000"/>
+		    </wave>
+        </waves>
+    </level>		
+</levels>

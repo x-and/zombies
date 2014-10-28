@@ -9,7 +9,6 @@ import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics.DisplayMode;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -23,7 +22,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
-import com.esotericsoftware.minlog.Log;
 import com.zombie.C;
 import com.zombie.C.APP;
 
@@ -40,11 +38,6 @@ public class Options extends Window{
 		init();
 	}
 
-	@Override
-	public void draw(SpriteBatch batch, float parentAlpha){
-		Log.info("Options", "draw");
-		super.draw(batch, parentAlpha);
-	}
 	private void init() {
 
 		for(DisplayMode m : Gdx.graphics.getDisplayModes()){

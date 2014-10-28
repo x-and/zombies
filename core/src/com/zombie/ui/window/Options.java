@@ -45,7 +45,6 @@ public class Options extends Window{
 		Log.info("Options", "draw");
 		super.draw(batch, parentAlpha);
 	}
-	
 	private void init() {
 
 		for(DisplayMode m : Gdx.graphics.getDisplayModes()){

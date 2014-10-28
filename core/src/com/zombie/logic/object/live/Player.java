@@ -453,7 +453,7 @@ public class Player extends LiveObject {
 
 			@Override
 			public void run() {
-				Light light = new ConeLight(LightManager.handler, 32, Light.DefaultColor, 50, getX(), getY(), getA(), 30);
+				Light light = new ConeLight(LightManager.getHandler(), 32, Light.DefaultColor, 50, getX(), getY(), getA(), 30);
 				light.setSoftnessLength(3);
 				light.setSoft(true);
 				LightEffect eff = new LightEffect(light);

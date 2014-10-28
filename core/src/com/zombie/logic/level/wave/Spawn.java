@@ -1,6 +1,5 @@
 package com.zombie.logic.level.wave;
 
-
 import com.badlogic.gdx.math.Vector2;
 import com.zombie.logic.GameWorld;
 import com.zombie.logic.level.SpawnPoint;

@@ -199,7 +199,8 @@
 		<param name="explodesound">explode_1</param>
 		<param name="particle_explode">explode_1</param>
 		<param name="condition">timer</param>
-		<param name="timer">10000</param>
+		<param name="beeponTimer">true</param>
+		<param name="timer">5000</param>
 		<param name="blowOnContact">false</param>
 		<param name="velocity">0f</param>
 		<param name="damage">400</param>

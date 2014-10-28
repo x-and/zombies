@@ -235,14 +235,14 @@ public class Car extends Vehicle{
 	protected void enableLights() {
 		if (frontLights == null){
 			frontLights = new Light[2];
-			frontLights[0] = new ConeLight(LightManager.handler, 8, Light.DefaultColor, 500, 0, 0, 90, 45);
-			frontLights[1] = new ConeLight(LightManager.handler, 8, Light.DefaultColor, 500, 0, 0, 90, 45);
+			frontLights[0] = new ConeLight(LightManager.getHandler(), 8, Light.DefaultColor, 500, 0, 0, 90, 45);
+			frontLights[1] = new ConeLight(LightManager.getHandler(), 8, Light.DefaultColor, 500, 0, 0, 90, 45);
 		}
 		
 		if (rearLights == null){
 			rearLights = new Light[2];
-			rearLights[0] = new ConeLight(LightManager.handler, 8, Color.RED, 32, 0, 0, 90, 30);
-			rearLights[1] = new ConeLight(LightManager.handler, 8, Color.RED, 32, 0, 0, 90, 30);
+			rearLights[0] = new ConeLight(LightManager.getHandler(), 8, Color.RED, 32, 0, 0, 90, 30);
+			rearLights[1] = new ConeLight(LightManager.getHandler(), 8, Color.RED, 32, 0, 0, 90, 30);
 		}
 		
 		frontLights[0].setActive(true);

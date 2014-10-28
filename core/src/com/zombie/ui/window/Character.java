@@ -65,9 +65,9 @@ public class Character extends Table {
 
 	@Override
 	public void draw(SpriteBatch batch, float parentAlpha){
-		Log.info("Character", "draw");
 		super.draw(batch, parentAlpha);
 	}
+
 	
 	void setPadding(Table t){
 		t.defaults().space(C.UI.SPACING/4,C.UI.SPACING/4,0,C.UI.SPACING/4);

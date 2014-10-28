@@ -21,7 +21,7 @@ public class RocketTracerEffect extends AbstractEffect{
 
 	public RocketTracerEffect(ParticleEffect particleEffect, ExplosiveObject owner){
 		this.owner = owner;
-		light = new ConeLight(LightManager.handler, 12, Color.YELLOW, 120, owner.getX(), owner.getY(), owner.imageAngle-180, 15);
+		light = new ConeLight(LightManager.getHandler(), 12, Color.YELLOW, 120, owner.getX(), owner.getY(), owner.imageAngle-180, 15);
 		renderGroup = C.GROUP_PRE_NORMAL;
 		effect = particleEffect;
 		effect.setPosition(owner.getX(), owner.getY());

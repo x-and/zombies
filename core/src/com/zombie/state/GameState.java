@@ -140,7 +140,7 @@ public class GameState extends BasicGameState {
 //		}
 
 		gameStarted = true;	
-		player.light = new ConeLight(LightManager.handler, 80, Light.DefaultColor, 400, player.getX(), player.getY(), 0, 25);
+		player.light = new ConeLight(LightManager.getHandler(), 80, Light.DefaultColor, 400, player.getX(), player.getY(), 0, 25);
 		Cam.object = player;
 	}
 	
@@ -203,7 +203,7 @@ public class GameState extends BasicGameState {
 		LightManager.render();
 		getSpriteBatch().begin();
 		
-		getSpriteBatch().setColor(LightManager.ambient);
+		getSpriteBatch().setColor(LightManager.getAmbient());
 //		LightManager.handler.ambientStart();
 		for (Building b : buildings){
 			if (!b.drawInside || b.outsideAlpha != 0)
@@ -215,7 +215,7 @@ public class GameState extends BasicGameState {
 			if (r.needDraw(Cam.view))
 				r.draw(getSpriteBatch(), shapeBatch);
 
-		getSpriteBatch().setColor(LightManager.ambient);
+		getSpriteBatch().setColor(LightManager.getAmbient());
 		getSpriteBatch().enableBlending();
 
  		mapRenderer.renderTileLayer(upper);
@@ -401,6 +401,19 @@ public class GameState extends BasicGameState {
 		return false;
 	}
 	
+	@Override
+	public void pause(){
+		super.pause();
+	}
+	
+	@Override
+	public void resume(){
+		super.resume();
+		if (ui.hide)
+			this.pauseUpdate();
+	}
+	
+	
 	public Map<Integer,NavPath> pathes = new ConcurrentHashMap<Integer,NavPath>();
 	
 	@Override	
@@ -414,9 +427,9 @@ public class GameState extends BasicGameState {
 			return true;
 		}
 		if (keyCode == Keys.F1){
-			LightManager.handler.setAmbientLight(1);
-			LightManager.handler.setBlur(true);
-			LightManager.handler.setBlurNum(1);
+			LightManager.getHandler().setAmbientLight(1);
+			LightManager.getHandler().setBlur(true);
+			LightManager.getHandler().setBlurNum(1);
 			player.light.setSoft(true);
 			player.light.setSoftnessLength(0);
 			return true;

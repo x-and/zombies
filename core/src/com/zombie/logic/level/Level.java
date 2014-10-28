@@ -245,7 +245,7 @@ public class Level implements Disposable, TileBasedMap{
 			String[] rgba = c.split(",");
 			Color color = new Color(Integer.parseInt(rgba[0])/256f,Integer.parseInt(rgba[1])/256f,Integer.parseInt(rgba[2])/256f,Integer.parseInt(rgba[3])/256f);
 
-			LightEffect eff = new LightEffect(new PointLight(LightManager.handler, (int) obj.getEllipse().width, color, obj.getEllipse().width, obj.getEllipse().x+obj.getEllipse().width/2, obj.getEllipse().y+obj.getEllipse().width/2));
+			LightEffect eff = new LightEffect(new PointLight(LightManager.getHandler(), (int) obj.getEllipse().width, color, obj.getEllipse().width, obj.getEllipse().x+obj.getEllipse().width/2, obj.getEllipse().y+obj.getEllipse().width/2));
 			eff.permanent = true;
 			if (obj.getProperties().containsKey("blink_time"))
 				eff.time = Integer.parseInt((String)obj.getProperties().get("blink_time"));

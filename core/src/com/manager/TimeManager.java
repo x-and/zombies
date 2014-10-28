@@ -6,11 +6,11 @@ import com.esotericsoftware.minlog.Log;
 public class TimeManager {
 	
 	// total cycle is 2 min (120 sec)
-	public final static long DAYTIME = 60*1000; // in seconds
-	public final static long NIGHTTIME = 60*1000; // in seconds	
-	public final static long DUSKTIME = 15*1000; // in seconds	
-	public final static long DAWNTIME = 15*1000; // in seconds	
-	
+	public final static long DAYTIME = 180*1000; // in seconds
+	public final static long NIGHTTIME = 120*1000; // in seconds	
+	public final static long DUSKTIME = 30*1000; // in seconds	
+	public final static long DAWNTIME = 30*1000; // in seconds	
+
 	public static enum Time {
 		DAYTIME,NIGHTTIME,DUSKTIME,DAWNTIME
 	}

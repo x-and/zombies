@@ -10,6 +10,7 @@ import com.zombie.C;
 import com.zombie.logic.level.Level;
 
 
+//TODO увеличить размер сетки в 2-4 раза (более точный путь)
 public class PathFindingManager implements Runnable{
 
 	static int sleep = 10;

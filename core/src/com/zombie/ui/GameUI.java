@@ -34,6 +34,7 @@ import com.zombie.state.GameState;
 import com.zombie.ui.window.AchieveInfo;
 import com.zombie.ui.window.Character;
 import com.zombie.ui.window.Menu;
+import com.zombie.ui.window.QuestDialog;
 import com.zombie.ui.window.Shop;
 import com.zombie.util.Utils;
 
@@ -51,9 +52,9 @@ public class GameUI extends UI{
 	Image menuBtn;
 	TextButton slot1,slot2,slot3;
 	
-	Shop shop;
+	public Shop shop;
 	public Character character;
-	Menu menu;
+	public Menu menu;
 	public AchieveInfo aInfo;
 	
 	public void init(){
@@ -104,10 +105,11 @@ public class GameUI extends UI{
 		slot3.layout();
 		
 		aInfo = new AchieveInfo();
-		menu = new Menu();
+		if (menu == null)
+			menu = new Menu();
 		shop = new Shop(C.UI.SKIN);
 		character = new Character("Character",C.UI.SKIN);
-
+		character.hide();
 
 		charBtn = new Image(ResourceManager.getImage("icon_char"));
 		charBtn.addListener(new ClickListener(){

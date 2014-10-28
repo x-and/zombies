@@ -1,12 +1,14 @@
 package com.zombie.ui;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.FocusListener;
+import com.esotericsoftware.minlog.Log;
 import com.zombie.C;
 import com.zombie.logic.enums.ItemType;
 import com.zombie.logic.enums.ObjectType;
@@ -21,6 +23,12 @@ import com.zombie.util.Cam;
 public class ActionPicker extends Table {
 	public static Table t; 
 	public static GameObject target;
+	
+	@Override
+	public void draw(SpriteBatch batch, float parentAlpha){
+		Log.info("ActionPicker", "draw");
+		super.draw(batch, parentAlpha);
+	}
 	
 	public static Table get(GameObject object){
 		target = object;

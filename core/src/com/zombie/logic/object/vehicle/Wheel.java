@@ -73,7 +73,7 @@ public class Wheel extends PhysicObject{
 	}
     /*returns get velocity vector relative to car   */
 	public Vector2 getLocalVelocity () {
-	    return car.body.getLocalVector(car.body.getLinearVelocityFromLocalPoint(body.getPosition()));
+	    return car.body.getLocalVector(car.body.getLinearVelocityFromLocalPoint(new Vector2(0, 0)));
 	}
     /*  returns a world unit vector pointing in the direction this wheel is moving */
 	public Vector2 getDirectionVector () {

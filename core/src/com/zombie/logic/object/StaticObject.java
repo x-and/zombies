@@ -21,8 +21,6 @@ import com.zombie.util.SoundUtils;
 public class StaticObject extends PhysicObject implements Hitable,Searchable{
 
 	boolean empty = false;
-	
-	
 
 	public StaticObject(float x, float y) {
 		super(x, y);
@@ -43,25 +41,25 @@ public class StaticObject extends PhysicObject implements Hitable,Searchable{
 
 		if (body.isAwake())
 			return;
-		checkGrid();
+//		checkGrid();
 //		if (TimeManager.getLongTime() - lastMoveTimer < 1000){
 //			checkGrid();
 //			lastMoveTimer-=1000;
 //		}
 	}
 	
-	// TODO better che
-	protected void checkGrid(){
-		Grid grid = GameWorld.level.grid;
-		int oldx = 0,oldy = 0,x = 0,y = 0;
-		
-		oldx = (int) (pos.getOldX()/C.TILESIZE);
-		oldy = (int) (pos.getOldY()/C.TILESIZE);
-		x = (int) (getX()/C.TILESIZE);
-		y = (int) (getY()/C.TILESIZE);
-		grid.grid[oldx][oldy].pass = true;
-		grid.grid[x][y].pass = removed;
-	}
+//	// TODO better che
+//	protected void checkGrid(){
+//		Grid grid = GameWorld.level.grid;
+//		int oldx = 0,oldy = 0,x = 0,y = 0;
+//		
+//		oldx = (int) (pos.getOldX()/C.TILESIZE);
+//		oldy = (int) (pos.getOldY()/C.TILESIZE);
+//		x = (int) (getX()/C.TILESIZE);
+//		y = (int) (getY()/C.TILESIZE);
+//		grid.grid[oldx][oldy].pass = true;
+//		grid.grid[x][y].pass = removed;
+//	}
 
 	protected void toParts(float velocity,TextureRegion image){
 		for(int i = 0;i<8;i++){

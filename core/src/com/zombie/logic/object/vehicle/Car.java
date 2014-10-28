@@ -36,6 +36,7 @@ public class Car extends Vehicle{
 		setTexture(ResourceManager.getImage(image));
 		engine = ResourceManager.getSound("engine");
 		enableLights();
+		needUpdateCoords = false;
 	}
 	
 	public void createBody(){
@@ -44,14 +45,14 @@ public class Car extends Vehicle{
 		bodyDef.type = BodyDef.BodyType.DynamicBody;
 		bodyDef.position.set(pos.current.cpy().scl(C.WORLD_TO_BOX));
 		bodyDef.angle = getA();
-		bodyDef.angularDamping = 0.1f;
+		bodyDef.angularDamping = 3f;
 		body = Physics.world.createBody(bodyDef);
 		
 		//init shape
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.density = 10.0f;
-		fixtureDef.friction = 1f; //friction when rubbing against other shapes
-		fixtureDef.restitution  = 0f; //amount of force feedback when hitting something. >0 makes the car bounce off, it's fun!
+		fixtureDef.friction = 0.5f; //friction when rubbing against other shapes
+		fixtureDef.restitution  = 0.2f; //amount of force feedback when hitting something. >0 makes the car bounce off, it's fun!
 		PolygonShape carShape = new PolygonShape();
 		carShape.setAsBox(getW() / 2 * C.WORLD_TO_BOX, getH() / 2 * C.WORLD_TO_BOX);
 		fixtureDef.shape = carShape;
@@ -117,6 +118,7 @@ public class Car extends Vehicle{
 	        
 	        for(Wheel wheel : getPoweredWheels()){
 	        	 wheel.body.applyForceToCenter(wheel.body.getWorldVector(new Vector2(forceVector.x, forceVector.y)),true);
+//	        	 wheel.body.applyTorque(torque, true);
 	        }
 	        pos.set(getBodyX(),getBodyY(),getBodyA());
 	        updateLights();
@@ -128,21 +130,20 @@ public class Car extends Vehicle{
 	    if (body == null)
 	    	return;
         Physics.task(physics);
-	    
 
-       float scaleFactor = (1-getSpeedKMH()/maxSpeed)*1.2f;
-//        scaleFactor = Math.max(0.25f,scaleFactor);
-//		calculate the change in wheel's angle for this updates
-        float incr=(getStat().maxSteering) * delta;
+       float scaleFactor = (1-getSpeedKMH()/maxSpeed)*2;
+       scaleFactor = 1;
+        float incr=(getStat().maxSteering) * delta*2;
         if(steer==Control.STEER_LEFT){
             wheelAngle=Math.min(wheelAngle+incr, getStat().maxSteering*scaleFactor); //increment angle without going over max steer
         } else if(steer==Control.STEER_RIGHT){
             wheelAngle=Math.max(wheelAngle-incr, -getStat().maxSteering*scaleFactor); //decrement angle without going over max steer
         } else{
+        	incr*=2;
         	if (wheelAngle > 0)
-        		wheelAngle=Math.max(0,wheelAngle-incr);
+        		wheelAngle=Math.max(0,wheelAngle-incr*2);
         	else 
-        		wheelAngle=Math.min(0,wheelAngle+incr);
+        		wheelAngle=Math.min(0,wheelAngle+incr*2);
         }
         stopLights(false);
         //if accelerator is pressed down and speed limit has not been reached, go forwards

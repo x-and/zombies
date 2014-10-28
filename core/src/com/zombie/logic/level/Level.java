@@ -24,6 +24,7 @@ import com.badlogic.gdx.utils.Disposable;
 import com.droidinteractive.box2dlight.PointLight;
 import com.manager.LightManager;
 import com.manager.ResourceManager;
+import com.manager.TimeManager;
 import com.path.Grid;
 import com.path.PathFindingContext;
 import com.path.TileBasedMap;
@@ -256,6 +257,13 @@ public class Level implements Disposable, TileBasedMap{
 				//FIXME
 				eff.light.setStaticLight(true);
 			}
+			
+			String s = (String) obj.getProperties().get("type");
+			eff.type = s;
+			if (s.equalsIgnoreCase("outdoor"))
+				TimeManager.addListener(eff);
+			eff.changed(TimeManager.getTime());
+				
 			GameWorld.addEffect(eff);
 		}	
 	}

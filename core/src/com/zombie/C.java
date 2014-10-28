@@ -53,6 +53,7 @@ public class C {
 
 	public static final float BOX_TO_WORLD = 100f;
 
+
 	public static long BLOOD_EFFECT_TIME = 30000;
 
 	public static String lang;

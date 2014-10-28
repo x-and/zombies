@@ -64,6 +64,7 @@ public class GameWorld {
 			level.dispose();
 
 		Physics.getInstance().init();
+		TimeManager.getInstance().init();
 		LightManager.initLights();
 		GameState.buildings.clear();
 		loadLevel(id);
@@ -76,7 +77,7 @@ public class GameWorld {
 		QuestManager.levelLoaded();
 		PathFindingManager.init(level);
 		GameState.getInstance().startLevel(level);
-		TimeManager.getInstance().init();
+
 		Log.info("world", "Level \""+level.name+"\" init complete");
 	}
 	

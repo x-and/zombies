@@ -89,7 +89,10 @@ public class DesktopInput extends Input {
 	public void update(float f) {
 		if (ZombieGame.getInstance().getCurrentState() != GameState.getInstance())
 			return;
+		//FIXME when camera center is not player - player's angle is bugged
 		float rads = MathUtils.atan2((Cam.offsetY-Gdx.graphics.getHeight()/2+pointerY)-GameState.player.getY(), (Cam.offsetX-Gdx.graphics.getWidth()/2+pointerX)-GameState.player.getX());
+//		float rads = MathUtils.atan2(pointerY-GameState.player.getY(), pointerX-GameState.player.getX());
+
 		playerAngle = (int) (360 - rads* MathUtils.radDeg);
 		if (playerAngle > 360)
 			playerAngle -=360;

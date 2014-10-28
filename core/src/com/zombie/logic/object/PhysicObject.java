@@ -9,6 +9,7 @@ import com.zombie.C;
 public abstract class PhysicObject extends GameObject {
 
 	public Body body;
+	protected boolean needUpdateCoords = true;
 	
 	public PhysicObject(){
 	}
@@ -44,7 +45,8 @@ public abstract class PhysicObject extends GameObject {
 	@Override
 	public void update(float delta) {
 		super.update(delta);
-		pos.set(getBodyX(),getBodyY(),getBodyA());
+		if (needUpdateCoords)
+			pos.set(getBodyX(),getBodyY(),getBodyA());
 	}
 
 	
@@ -123,6 +125,5 @@ public abstract class PhysicObject extends GameObject {
 					}}, 10);
 		}
 	}
-
 
 }

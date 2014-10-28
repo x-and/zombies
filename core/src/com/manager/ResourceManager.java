@@ -230,6 +230,7 @@ public class ResourceManager extends AssetManager {
 				Sound sound = Gdx.audio.newSound(Gdx.files.internal(el.getTextContent()));
 				info.sound = sound;
 				info.radius = Float.parseFloat(el.getAttribute("radius"));
+				info.spaceSystem = Boolean.parseBoolean(el.getAttribute("spacesystem") == "" ? "false" : el.getAttribute("spacesystem"));
 				sounds.put(el.getAttribute("id"), info);
 			}});
 	}

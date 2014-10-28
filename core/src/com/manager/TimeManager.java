@@ -2,21 +2,20 @@ package com.manager;
 
 import com.badlogic.gdx.utils.Array;
 import com.esotericsoftware.minlog.Log;
-import com.manager.TimeManager.Time;
 
 public class TimeManager {
 	
 	// total cycle is 2 min (120 sec)
 	public final static long DAYTIME = 60*1000; // in seconds
-	public final static long NIGHTTIME = 30*1000; // in seconds	
+	public final static long NIGHTTIME = 60*1000; // in seconds	
 	public final static long DUSKTIME = 15*1000; // in seconds	
 	public final static long DAWNTIME = 15*1000; // in seconds	
 	
-	static enum Time {
+	public static enum Time {
 		DAYTIME,NIGHTTIME,DUSKTIME,DAWNTIME
 	}
 	
-	static interface TimeChangeListener{
+	public static interface TimeChangeListener{
 		void changed(Time newtime);
 	}
 	
@@ -24,7 +23,15 @@ public class TimeManager {
 	float time2;
 	static long nextTime = 1000;
 	static Time currentTime;
-	Array<TimeChangeListener> listeners = new Array<TimeChangeListener>();	
+	private static Array<TimeChangeListener> listeners = new Array<TimeChangeListener>();	
+	
+	public static void addListener(TimeChangeListener l){
+		listeners.add(l);
+	}
+	
+	public static void removeListener(TimeChangeListener l){
+		listeners.removeValue(l, true);
+	}
 	
 	public static long getLongTime(){
 		return getInstance().time;
@@ -84,7 +91,6 @@ public class TimeManager {
 			public void changed(Time newtime) {
 				Log.info("TimeManager", "ToD changed : " + newtime);
 			}});
-		listeners.add(new LightManager());
 	}
 
 	public static long getNextTime() {
@@ -99,5 +105,9 @@ public class TimeManager {
 		else if(newtime == Time.NIGHTTIME)
 			return NIGHTTIME;
 		return DAWNTIME;
+	}
+
+	public static Time getTime() {
+		return currentTime;
 	}
 }

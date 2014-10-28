@@ -55,8 +55,8 @@ import com.zombie.logic.object.GameObject;
 import com.zombie.logic.object.interfaces.Searchable;
 import com.zombie.logic.object.interfaces.Useable;
 import com.zombie.logic.object.live.Player;
-import com.zombie.logic.object.vehicle.Car;
 import com.zombie.logic.object.vehicle.Vehicle;
+import com.zombie.logic.object.vehicle.Car;
 import com.zombie.ui.ActionPicker;
 import com.zombie.ui.GameUI;
 import com.zombie.util.Cam;
@@ -355,7 +355,6 @@ public class GameState extends BasicGameState {
 	@Override
 	public boolean scrolled(int amount) {
 		if (!super.scrolled(amount) && C.APP.DEBUG){
-			
 			if (amount > 0)
 				Cam.zoom+= 0.05f;
 			else
@@ -423,7 +422,15 @@ public class GameState extends BasicGameState {
 			return true;
 		}
 		if (keyCode == Keys.F3){
-			GameWorld.addObject(new Car(50, 100, player.getPos().current, (float) Math.PI, 12, 30, 40));
+			GameWorld.addObject(new Car(50, 100, player.getPos().current, (float) Math.PI, 5, 30, 50));
+			return true;
+		}
+		if (keyCode == Keys.F4){
+			Cam.object = player;
+			return true;
+		}
+		if (keyCode == Keys.F5){
+			Cam.object = null;
 			return true;
 		}
 		for (KeyInputListener in : keyListeners)

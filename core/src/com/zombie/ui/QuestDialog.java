@@ -7,12 +7,14 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.visible;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.esotericsoftware.minlog.Log;
 import com.manager.ResourceManager;
 import com.zombie.C;
 
@@ -21,6 +23,12 @@ public class QuestDialog extends Table {
 	public static QuestDialog dialog = new QuestDialog();
 	public Image image;
 	public Label name,text;
+	
+	@Override
+	public void draw(SpriteBatch batch, float parentAlpha){
+		Log.info("QuestDialog", "draw");
+		super.draw(batch, parentAlpha);
+	}
 	
 	public QuestDialog() {
 		super(C.UI.SKIN);

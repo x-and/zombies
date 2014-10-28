@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.zombie.input.Input;
 import com.zombie.logic.enums.ObjectType;
 import com.zombie.logic.object.GameObject;
 import com.zombie.logic.object.LiveObject;
@@ -52,25 +53,39 @@ public class Cam {
 	}
 	
 	public static void moveCam() {
-		if (object == null)
-			return;
-		float objX = object.getX(),objY = object.getY();
-		if (object.type == ObjectType.LIVE && ((LiveObject) object).inVehicle()){
-			objX = ((LiveObject) object).vehicle.getX();
-			objY = ((LiveObject) object).vehicle.getY();
+		float objX = offsetX,objY = offsetY;
+		if (object == null){
+			if (Input.pointerX <= 20){
+				objX  = -20 + offsetX;
+			} else if (Input.pointerX >= Gdx.graphics.getWidth() - 20){
+				objX  = 20 + offsetX;
+			}
+			if (Input.pointerY <= 20){
+				objY  = 20 + offsetY;
+			} else if (Input.pointerY >= Gdx.graphics.getHeight() - 20){
+				objY  = -20 + offsetY;
+			}			
+			if (objX  == 0 && objY == 0 )
+				return;
+		} else {
+			objX = object.getX();
+			objY = object.getY();
+			if (object.type == ObjectType.LIVE && ((LiveObject) object).inVehicle()){
+				objX = ((LiveObject) object).vehicle.getX();
+				objY = ((LiveObject) object).vehicle.getY();
+			}
 		}
-
 		float x1,y1;
 		x1 = (offsetX-(objX));
 		y1 = (offsetY-(objY));
 		x1 = Math.round(x1);
 		y1 = Math.round(y1);
-		offsetX -= x1;
-		offsetY -= y1;
+		offsetX -= x1/8;
+		offsetY -= y1/8;
 		if (zoom <= 0)
 			zoom = 1;
 		Cam.setZoom(zoom);
-		camera2d.position.set(offsetX, offsetY, 0);
+		camera2d.position.set(Math.round(offsetX), Math.round(offsetY), 0);
 	}
 
 	public static void setToOrtho(boolean b, int width, int height) {

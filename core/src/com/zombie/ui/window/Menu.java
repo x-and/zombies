@@ -8,6 +8,7 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.visible;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -17,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.esotericsoftware.minlog.Log;
 import com.zombie.C;
 import com.zombie.ZombieGame;
 import com.zombie.achieve.AchieveSystem;
@@ -36,6 +38,12 @@ public class Menu extends Actor {
 		init();
 	}
 
+	@Override
+	public void draw(SpriteBatch batch, float parentAlpha){
+		Log.info("Menu", "draw");
+		super.draw(batch, parentAlpha);
+	}
+	
 	private void init() {
 		
 		float h = Gdx.graphics.getHeight()/2;

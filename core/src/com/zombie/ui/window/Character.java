@@ -31,6 +31,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.esotericsoftware.minlog.Log;
 import com.manager.ResourceManager;
 import com.manager.ThreadPoolManager;
 import com.zombie.C;
@@ -62,6 +63,12 @@ public class Character extends Table {
 		init();
 	}
 
+	@Override
+	public void draw(SpriteBatch batch, float parentAlpha){
+		Log.info("Character", "draw");
+		super.draw(batch, parentAlpha);
+	}
+	
 	void setPadding(Table t){
 		t.defaults().space(C.UI.SPACING/4,C.UI.SPACING/4,0,C.UI.SPACING/4);
 		t.defaults().pad(C.UI.SPACING/4,C.UI.SPACING/4,0,C.UI.SPACING/4);

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -17,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.esotericsoftware.minlog.Log;
 import com.manager.ResourceManager;
 import com.zombie.C;
 import com.zombie.logic.enums.ItemType;
@@ -38,6 +40,12 @@ public class Shop extends Table {
 		init();
 	}
 	Table table;
+	
+	@Override
+	public void draw(SpriteBatch batch, float parentAlpha){
+		Log.info("Shop", "draw");
+		super.draw(batch, parentAlpha);
+	}
 	
 	private void init() {
 		cells = new HashMap<Integer,ItemCell>();

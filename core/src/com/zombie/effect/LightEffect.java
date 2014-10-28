@@ -6,10 +6,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.droidinteractive.box2dlight.Light;
+import com.manager.TimeManager.Time;
+import com.manager.TimeManager.TimeChangeListener;
 
-public class LightEffect extends AbstractEffect {
+public class LightEffect extends AbstractEffect implements TimeChangeListener {
 
 	public Light light;
+	public String type;
+	
 	public boolean permanent = false;
 	long lastTimer = 0;
 	float distance = 0;
@@ -27,7 +31,6 @@ public class LightEffect extends AbstractEffect {
 	public void draw(SpriteBatch batch, ShapeRenderer shapeBatch) {
 		if (texture == null)
 			return;
-//		batch.draw(texture, getX(), getY(), 0,0, texture.getRegionWidth(), texture.getRegionHeight(), 1, 1, 0);	
 	}
 
 	@Override
@@ -53,6 +56,17 @@ public class LightEffect extends AbstractEffect {
 	@Override
 	public void remove() {
 		light.remove();
+	}
+
+	public void changed(Time time) {
+		if (type.equalsIgnoreCase("outdoor")){
+			if (time == Time.DAYTIME)
+				light.setActive(false);
+			if (time == Time.DUSKTIME)
+				light.setActive(true);	
+			System.out.println("LightEffect time changed" + time);
+		}
+		
 	}
 
 }

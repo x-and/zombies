@@ -28,8 +28,8 @@ public class LightManager  implements TimeChangeListener{
 		handler.setAmbientLight(ambient);
 		RayHandler.isDiffuse = true;
 		RayHandler.shaderDiffuse = 10;
-
 		Light.setContactFilter(new Filter());
+		TimeManager.addListener(getInstance());
 	}
 	
 	public static void render(){
@@ -45,19 +45,18 @@ public class LightManager  implements TimeChangeListener{
 	}
 	
 	static Color to = new Color();
-	static float time;
+	static float time,totaltime;
 	
 	public static void update(float delta){
 		if (handler != null)
 			handler.update();
 		delta*=1000;
 		if (time != 0){
-			ambient.lerp(to, time/TimeManager.getTimeFor(TimeManager.currentTime));
+			handler.setAmbientLight(ambient.lerp(to, 1-time/totaltime));
 			time -=delta;
 			if (time < 0)
 				time = 0;
-			System.out.println(time + " _ " + delta);
-			handler.setAmbientLight(ambient);
+//			System.out.println(time + " _ " + delta + " _ " + (1-time/totaltime));
 		}
 	}
 
@@ -69,14 +68,25 @@ public class LightManager  implements TimeChangeListener{
 	
 	@Override
 	public void changed(Time newtime) {
-		if (newtime == Time.DAYTIME){
+		if (newtime == Time.DAYTIME)
 			to.set(Color.WHITE).mul(0.6f);
-		} else if (newtime == Time.DUSKTIME || newtime == Time.DAWNTIME) {
+		else if (newtime == Time.DUSKTIME || newtime == Time.DAWNTIME)
 			to.set(Color.DARK_GRAY).mul(0.1f);
-		} else {  
+		else  
 			to.set(Color.BLACK).mul(0.05f);
-		}
 		to.a = 1;
-		time = TimeManager.getTimeFor(newtime)/4;
+		if (newtime == Time.DUSKTIME || newtime == Time.DAWNTIME)
+			totaltime = time = TimeManager.getTimeFor(newtime);
+		else 
+			totaltime = time = TimeManager.getTimeFor(newtime)/8;
+	}
+	
+	public static LightManager getInstance(){
+		return SingletonHolder._instance;
+	}
+
+	@SuppressWarnings("synthetic-access")
+	private static class SingletonHolder {
+		protected static final LightManager _instance = new LightManager();
 	}
 }

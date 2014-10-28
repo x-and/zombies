@@ -122,73 +122,73 @@
 	<resource type="sound" id="shell_2" radius="100">data/sound/shell_2.mp3</resource>
 	<resource type="sound" id="shell_3" radius="100">data/sound/shell_3.mp3</resource>
 
-	<resource type="sound" id="step_grass_0" radius="200">data/sound/step_grass_0.mp3</resource>
-	<resource type="sound" id="step_grass_1" radius="200">data/sound/step_grass_1.mp3</resource>
-	<resource type="sound" id="step_grass_2" radius="200">data/sound/step_grass_2.mp3</resource>
-	<resource type="sound" id="step_grass_3" radius="200">data/sound/step_grass_3.mp3</resource>
-	<resource type="sound" id="step_asphalt_0" radius="500">data/sound/step_asphalt_0.mp3</resource>
-	<resource type="sound" id="step_asphalt_1" radius="500">data/sound/step_asphalt_1.mp3</resource>
-	<resource type="sound" id="step_asphalt_2" radius="500">data/sound/step_asphalt_2.mp3</resource>
-	<resource type="sound" id="step_asphalt_3" radius="500">data/sound/step_asphalt_3.mp3</resource>	
-	<resource type="sound" id="step_wood_0" radius="100">data/sound/step_wood_0.mp3</resource>
-	<resource type="sound" id="step_wood_1" radius="100">data/sound/step_wood_1.mp3</resource>
-	<resource type="sound" id="step_wood_2" radius="100">data/sound/step_wood_2.mp3</resource>
-	<resource type="sound" id="step_wood_3" radius="100">data/sound/step_wood_3.mp3</resource>	
-	<resource type="sound" id="step_sand_0" radius="300">data/sound/step_sand_0.mp3</resource>
-	<resource type="sound" id="step_sand_1" radius="300">data/sound/step_sand_1.mp3</resource>
-	<resource type="sound" id="step_sand_2" radius="300">data/sound/step_sand_2.mp3</resource>
-	<resource type="sound" id="step_sand_3" radius="300">data/sound/step_sand_3.mp3</resource>
-	<resource type="sound" id="step_snow_0" radius="300">data/sound/step_snow_0.mp3</resource>
-	<resource type="sound" id="step_snow_1" radius="300">data/sound/step_snow_1.mp3</resource>
-	<resource type="sound" id="step_snow_2" radius="300">data/sound/step_snow_2.mp3</resource>
-	<resource type="sound" id="step_snow_3" radius="300">data/sound/step_snow_3.mp3</resource>
-	<resource type="sound" id="step_forest_0" radius="300">data/sound/step_forest_0.mp3</resource>
-	<resource type="sound" id="step_forest_1" radius="300">data/sound/step_forest_1.mp3</resource>
-	<resource type="sound" id="step_forest_2" radius="300">data/sound/step_forest_2.mp3</resource>
-	<resource type="sound" id="step_forest_3" radius="300">data/sound/step_forest_3.mp3</resource>
+	<resource type="sound" id="step_grass_0" radius="200" spacesystem="true">data/sound/step_grass_0.mp3</resource>
+	<resource type="sound" id="step_grass_1" radius="200" spacesystem="true">data/sound/step_grass_1.mp3</resource>
+	<resource type="sound" id="step_grass_2" radius="200" spacesystem="true">data/sound/step_grass_2.mp3</resource>
+	<resource type="sound" id="step_grass_3" radius="200" spacesystem="true">data/sound/step_grass_3.mp3</resource>
+	<resource type="sound" id="step_asphalt_0" radius="500" spacesystem="true">data/sound/step_asphalt_0.mp3</resource>
+	<resource type="sound" id="step_asphalt_1" radius="500" spacesystem="true">data/sound/step_asphalt_1.mp3</resource>
+	<resource type="sound" id="step_asphalt_2" radius="500" spacesystem="true">data/sound/step_asphalt_2.mp3</resource>
+	<resource type="sound" id="step_asphalt_3" radius="500" spacesystem="true">data/sound/step_asphalt_3.mp3</resource>	
+	<resource type="sound" id="step_wood_0" radius="100" spacesystem="true">data/sound/step_wood_0.mp3</resource>
+	<resource type="sound" id="step_wood_1" radius="100" spacesystem="true">data/sound/step_wood_1.mp3</resource>
+	<resource type="sound" id="step_wood_2" radius="100" spacesystem="true">data/sound/step_wood_2.mp3</resource>
+	<resource type="sound" id="step_wood_3" radius="100" spacesystem="true">data/sound/step_wood_3.mp3</resource>	
+	<resource type="sound" id="step_sand_0" radius="300" spacesystem="true">data/sound/step_sand_0.mp3</resource>
+	<resource type="sound" id="step_sand_1" radius="300" spacesystem="true">data/sound/step_sand_1.mp3</resource>
+	<resource type="sound" id="step_sand_2" radius="300" spacesystem="true">data/sound/step_sand_2.mp3</resource>
+	<resource type="sound" id="step_sand_3" radius="300" spacesystem="true">data/sound/step_sand_3.mp3</resource>
+	<resource type="sound" id="step_snow_0" radius="300" spacesystem="true">data/sound/step_snow_0.mp3</resource>
+	<resource type="sound" id="step_snow_1" radius="300" spacesystem="true">data/sound/step_snow_1.mp3</resource>
+	<resource type="sound" id="step_snow_2" radius="300" spacesystem="true">data/sound/step_snow_2.mp3</resource>
+	<resource type="sound" id="step_snow_3" radius="300" spacesystem="true">data/sound/step_snow_3.mp3</resource>
+	<resource type="sound" id="step_forest_0" radius="300" spacesystem="true">data/sound/step_forest_0.mp3</resource>
+	<resource type="sound" id="step_forest_1" radius="300" spacesystem="true">data/sound/step_forest_1.mp3</resource>
+	<resource type="sound" id="step_forest_2" radius="300" spacesystem="true">data/sound/step_forest_2.mp3</resource>
+	<resource type="sound" id="step_forest_3" radius="300" spacesystem="true">data/sound/step_forest_3.mp3</resource>
 	
-	<resource type="sound" id="explode_0" radius="2000">data/sound/explode1.mp3</resource>
-	<resource type="sound" id="explode_1" radius="2000">data/sound/explode2.mp3</resource>
-	<resource type="sound" id="explode_2" radius="2000">data/sound/explode3.mp3</resource>
-	<resource type="sound" id="explode_3" radius="2000">data/sound/explode4.mp3</resource>
-	<resource type="sound" id="explode_4" radius="2000">data/sound/explode5.mp3</resource>
+	<resource type="sound" id="explode_0" radius="2000" spacesystem="true">data/sound/explode1.mp3</resource>
+	<resource type="sound" id="explode_1" radius="2000" spacesystem="true">data/sound/explode2.mp3</resource>
+	<resource type="sound" id="explode_2" radius="2000" spacesystem="true">data/sound/explode3.mp3</resource>
+	<resource type="sound" id="explode_3" radius="2000" spacesystem="true">data/sound/explode4.mp3</resource>
+	<resource type="sound" id="explode_4" radius="2000" spacesystem="true">data/sound/explode5.mp3</resource>
 	
-	<resource type="sound" id="punch_0" radius="100">data/sound/punch_0.mp3</resource>
-	<resource type="sound" id="punch_1" radius="100">data/sound/punch_1.mp3</resource>
-	<resource type="sound" id="punch_2" radius="100">data/sound/punch_2.mp3</resource>
+	<resource type="sound" id="punch_0" radius="100" spacesystem="true">data/sound/punch_0.mp3</resource>
+	<resource type="sound" id="punch_1" radius="100" spacesystem="true">data/sound/punch_1.mp3</resource>
+	<resource type="sound" id="punch_2" radius="100" spacesystem="true">data/sound/punch_2.mp3</resource>
 
-	<resource type="sound" id="wood_0" radius="100">data/sound/wood_0.mp3</resource>	
-	<resource type="sound" id="wood_1" radius="100">data/sound/wood_1.mp3</resource>
-	<resource type="sound" id="wood_2" radius="100">data/sound/wood_2.mp3</resource>	
-	<resource type="sound" id="wood_3" radius="100">data/sound/wood_3.mp3</resource>	
+	<resource type="sound" id="wood_0" radius="100" spacesystem="true">data/sound/wood_0.mp3</resource>	
+	<resource type="sound" id="wood_1" radius="100" spacesystem="true">data/sound/wood_1.mp3</resource>
+	<resource type="sound" id="wood_2" radius="100" spacesystem="true">data/sound/wood_2.mp3</resource>	
+	<resource type="sound" id="wood_3" radius="100" spacesystem="true">data/sound/wood_3.mp3</resource>	
 		
-	<resource type="sound" id="reload_0" radius="100">data/sound/reload_0.mp3</resource>
-	<resource type="sound" id="clipout_0" radius="100">data/sound/clipout_0.mp3</resource>
-	<resource type="sound" id="clipout_1" radius="100">data/sound/clipout_1.mp3</resource>
-	<resource type="sound" id="clipin_0" radius="100">data/sound/clipin_0.mp3</resource>
-	<resource type="sound" id="clipin_1" radius="100">data/sound/clipin_1.mp3</resource>
+	<resource type="sound" id="reload_0" radius="100" spacesystem="true">data/sound/reload_0.mp3</resource>
+	<resource type="sound" id="clipout_0" radius="100" spacesystem="true">data/sound/clipout_0.mp3</resource>
+	<resource type="sound" id="clipout_1" radius="100" spacesystem="true">data/sound/clipout_1.mp3</resource>
+	<resource type="sound" id="clipin_0" radius="100" spacesystem="true">data/sound/clipin_0.mp3</resource>
+	<resource type="sound" id="clipin_1" radius="100" spacesystem="true">data/sound/clipin_1.mp3</resource>
 
-	<resource type="sound" id="zombie_0" radius="500">data/sound/zombie_0.mp3</resource>
-	<resource type="sound" id="zombie_1" radius="500">data/sound/zombie_1.mp3</resource>
-	<resource type="sound" id="zombie_2" radius="500">data/sound/zombie_2.mp3</resource>
-	<resource type="sound" id="zombie_3" radius="500">data/sound/zombie_3.mp3</resource>
-	<resource type="sound" id="zombie_4" radius="500">data/sound/zombie_4.mp3</resource>
-	<resource type="sound" id="zombie_5" radius="500">data/sound/zombie_5.mp3</resource>
-	<resource type="sound" id="zombie_6" radius="500">data/sound/zombie_6.wav</resource>
-	<resource type="sound" id="zombie_7" radius="500">data/sound/zombie_7.wav</resource>
+	<resource type="sound" id="zombie_0" radius="500" spacesystem="true">data/sound/zombie_0.mp3</resource>
+	<resource type="sound" id="zombie_1" radius="500" spacesystem="true">data/sound/zombie_1.mp3</resource>
+	<resource type="sound" id="zombie_2" radius="500" spacesystem="true">data/sound/zombie_2.mp3</resource>
+	<resource type="sound" id="zombie_3" radius="500" spacesystem="true">data/sound/zombie_3.mp3</resource>
+	<resource type="sound" id="zombie_4" radius="500" spacesystem="true">data/sound/zombie_4.mp3</resource>
+	<resource type="sound" id="zombie_5" radius="500" spacesystem="true">data/sound/zombie_5.mp3</resource>
+	<resource type="sound" id="zombie_6" radius="500" spacesystem="true">data/sound/zombie_6.wav</resource>
+	<resource type="sound" id="zombie_7" radius="500" spacesystem="true">data/sound/zombie_7.wav</resource>
 	
 	<resource type="sound" id="click" radius="0">data/sound/click.mp3</resource>
-	<resource type="sound" id="engine" radius="1000">data/sound/engine.wav</resource>
+	<resource type="sound" id="engine" radius="1000" spacesystem="true">data/sound/engine.wav</resource>
 	
 	<resource type="sound" id="ambient_0" radius="0">data/sound/ambient_0.mp3</resource>
 	<resource first="true" type="sound" id="menu_music" radius="0">data/sound/menu.mp3</resource>
 	
-	<resource type="sound" id="iron_0" radius="200">data/sound/iron_0.mp3</resource>
-	<resource type="sound" id="iron_1" radius="200">data/sound/iron_1.mp3</resource>
-	<resource type="sound" id="iron_2" radius="200">data/sound/iron_2.mp3</resource>	
+	<resource type="sound" id="iron_0" radius="200" spacesystem="true">data/sound/iron_0.mp3</resource>
+	<resource type="sound" id="iron_1" radius="200" spacesystem="true">data/sound/iron_1.mp3</resource>
+	<resource type="sound" id="iron_2" radius="200" spacesystem="true">data/sound/iron_2.mp3</resource>	
 	
-	<resource type="sound" id="ric_0" radius="100">data/sound/ric_0.mp3</resource>
-	<resource type="sound" id="ric_1" radius="100">data/sound/ric_1.mp3</resource>
+	<resource type="sound" id="ric_0" radius="100" spacesystem="true">data/sound/ric_0.mp3</resource>
+	<resource type="sound" id="ric_1" radius="100" spacesystem="true">data/sound/ric_1.mp3</resource>
 
 	<resource type="emitter" id="shot" sprite="particle">data/shoot_0.p</resource>
 	<resource type="emitter" id="shot_1" sprite="particle">data/shoot_1.p</resource>

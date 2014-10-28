@@ -159,6 +159,8 @@ public class GameUI extends UI{
 		mainTable.add(expBar = new ExpBar()).colspan(4).minHeight(6).maxHeight(10).expandX().fill().bottom().padBottom(2).row();
 		mainTable.add(mpBar = new MpBar()).colspan(4).minHeight(6).maxHeight(10).expandX().fill().bottom().padBottom(0).row();
 		
+		
+		character.hide();
 //		table.setBackground(new TextureRegionDrawable(ResourceManager.getImage("table_back")));
 //		table.setBounds(0, Gdx.graphics.getHeight()-55, Gdx.graphics.getWidth(), 55);
 //		table.align(Align.top | Align.left);

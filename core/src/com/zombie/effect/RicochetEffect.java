@@ -55,7 +55,8 @@ public class RicochetEffect extends AbstractEffect implements RayCastCallback {
 	@Override
 	public float reportRayFixture(Fixture fixture, Vector2 point, Vector2 normal,
 			float fraction) {
-
+		if (point.equals(Vector2.Zero))
+			return -1;
 		normalAngle = (float) Math.toDegrees(Math.atan2(point.y-(point.y+normal.y), point.x-(point.x+normal.x)));
 		if (normalAngle < 0)
 			normalAngle = normalAngle+360;
@@ -69,8 +70,11 @@ public class RicochetEffect extends AbstractEffect implements RayCastCallback {
 		angle += Rnd.randomInt(-10, 10);
 		newPosition.set(point);
 		newPosition.scl(C.BOX_TO_WORLD);
-		position.set(newPosition);
+//		position.set(newPosition);
+		System.out.println("ricochet  " + position);
 		SoundUtils.playSound(ResourceManager.getSound("ric_"+ Rnd.nextInt(2)),position);
+		position.set(newPosition);
+
 		GameWorld.addEffect(this);
 		return 0;
 	}

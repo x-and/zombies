@@ -8,6 +8,7 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.visible;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -15,6 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
+import com.esotericsoftware.minlog.Log;
 import com.manager.ResourceManager;
 import com.manager.TimeManager;
 import com.zombie.C;
@@ -30,6 +32,12 @@ public class AchieveInfo extends Table implements Runnable{
 		init();
 	}
 
+	@Override
+	public void draw(SpriteBatch batch, float parentAlpha){
+		Log.info("AchieveInfo", "draw");
+		super.draw(batch, parentAlpha);
+	}
+	
 	private void init() {
 //		debug();
 		setBackground(new TextureRegionDrawable(ResourceManager.getImage("table_back")));

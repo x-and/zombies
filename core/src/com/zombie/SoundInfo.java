@@ -6,5 +6,6 @@ public class SoundInfo {
 
 	public Sound sound;
 	public float radius;
+	public boolean spaceSystem = false;
 	
 }

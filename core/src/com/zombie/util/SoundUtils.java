@@ -48,13 +48,14 @@ public class SoundUtils {
 				Physics.task(query);
 			}
 			
-			if (sound.spaceSystem){
+			if (sound.spaceSystem) {
 				float camX = Cam.offsetX;
 				float camY = Cam.offsetY;
-				if (Math.abs(camX - position.x) > Cam.view.width/4){
-					volume= MathUtils.clamp(C.MAP_WIDTH/2/Math.abs(position.dst(camX, camY))/C.TILESIZE*2,0,1f);
-				}
-				if (Math.abs(camX - position.x) < Cam.view.width/4)
+				float dist = position.dst(camX, camY);
+				if (!Cam.contains(position))
+					volume = sound.radius/(dist*2);
+				
+				if (Cam.contains(position))
 					pan = 0;
 				else {
 					if (camX - position.x < 0)
@@ -63,9 +64,10 @@ public class SoundUtils {
 						pan = -MathUtils.clamp(1-(C.MAP_WIDTH/Math.abs(position.x - camX)/C.TILESIZE), 0, 1f);
 				}
 			}
-			Log.debug("SoundUtils","  owner : " + (owner == null ? "null" : owner.toString()) + " position : " +position + " volume : " + volume + "  pan : " + pan);
+			Log.info("SoundUtils","  owner : " + (owner == null ? "null" : owner.toString()) + " position : " +position + " volume : " + volume + "  pan : " + pan);
 		}			
-
+		if (volume == 0)
+			return -1;
 		if (loop)
 			return sound.sound.loop(APP.SND_VOL*volume,pitch,pan);
 		return sound.sound.play(APP.SND_VOL*volume,pitch,pan);

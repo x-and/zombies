@@ -42,6 +42,7 @@ import com.zombie.KeyInputListener;
 import com.zombie.Renderable;
 import com.zombie.ZombieGame;
 import com.zombie.achieve.AchieveSystem;
+import com.zombie.effect.FogEffect;
 import com.zombie.effect.TextEffect;
 import com.zombie.input.Input;
 import com.zombie.logic.Building;
@@ -55,11 +56,12 @@ import com.zombie.logic.object.GameObject;
 import com.zombie.logic.object.interfaces.Searchable;
 import com.zombie.logic.object.interfaces.Useable;
 import com.zombie.logic.object.live.Player;
-import com.zombie.logic.object.vehicle.Vehicle;
 import com.zombie.logic.object.vehicle.Car;
+import com.zombie.logic.object.vehicle.Vehicle;
 import com.zombie.ui.ActionPicker;
 import com.zombie.ui.GameUI;
 import com.zombie.util.Cam;
+import com.zombie.util.Rnd;
 import com.zombie.util.Utils;
 import com.zombie.util.state.BasicGameState;
 import com.zombie.util.state.State;
@@ -132,16 +134,17 @@ public class GameState extends BasicGameState {
 		for(int i = 0;i<GameWorld.level.backgroundCount;i++)
 			background[i]=(TiledMapTileLayer) GameWorld.level.tiledMap.getLayers().get(i);
 		
-//		for(int i =0;i < 6;i++){
-//			FogEffect eff = new FogEffect(1f+2*Rnd.nextFloat());
-//			eff.position.x = Rnd.nextInt(C.MAP_WIDTH);
-//			eff.position.y = Rnd.nextInt(C.MAP_HEIGHT);
-//			GameWorld.addEffect(eff);
-//		}
+		for(int i =0;i < Rnd.nextInt(5);i++){
+			FogEffect eff = new FogEffect(1f+2*Rnd.nextFloat());
+			eff.position.x = Rnd.nextInt(C.MAP_WIDTH);
+			eff.position.y = Rnd.nextInt(C.MAP_HEIGHT);
+			GameWorld.addEffect(eff);
+		}
 
 		gameStarted = true;	
 		player.light = new ConeLight(LightManager.getHandler(), 80, Light.DefaultColor, 400, player.getX(), player.getY(), 0, 25);
 		Cam.object = player;
+		
 	}
 	
 	@Override
@@ -355,10 +358,7 @@ public class GameState extends BasicGameState {
 	@Override
 	public boolean scrolled(int amount) {
 		if (!super.scrolled(amount) && C.APP.DEBUG){
-			if (amount > 0)
-				Cam.zoom+= 0.05f;
-			else
-				Cam.zoom-= 0.05f;
+			Cam.zoom(amount);
 			return true;
 		}
 		return false;
@@ -375,7 +375,7 @@ public class GameState extends BasicGameState {
 			ActionPicker.t = null;
 		}
 		if (button == Buttons.MIDDLE){
-			Cam.zoom = 1;
+			Cam.camera2d.zoom = 1;
 			return true;
 		}
 		if (button == Buttons.RIGHT){

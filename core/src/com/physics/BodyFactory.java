@@ -197,6 +197,20 @@ public class BodyFactory {
 		return b;
 	}
 
+	public static Body createStaticCircle(float x, float y, float radius,
+			float angle, boolean isSensor, float damping) {
+
+		BodyDef bodyDef = bodyDef(x*C.WORLD_TO_BOX, y*C.WORLD_TO_BOX,MathUtils.degRad*angle,BodyType.StaticBody);
+		bodyDef.angularDamping = damping;
+		bodyDef.linearDamping = damping;
+		Body b = world.createBody(bodyDef);
+//		CircleShape shape = new CircleShape();
+		circle.setRadius(radius*C.WORLD_TO_BOX);
+		b.createFixture(circle, 0).setSensor(isSensor);
+//		shape.dispose();
+		return b;
+	}
+	
 	
 	public static void setupDimension(float w, float h) {
 		BodyDef boxDef = bodyDef(BodyType.StaticBody);

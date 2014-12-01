@@ -35,6 +35,8 @@
 	<resource type="animation" 	id="zombie3_melee0" x="0" y="0" tw="32" th="32" duration="40"  frames="0">zombie1_attack0</resource>
 	<resource type="animation" 	id="zombie3_melee1" x="0" y="0" tw="32" th="32" duration="40"  frames="0">zombie1_attack1</resource>
 
+	<resource type="sprite" id="outdoor_light" >data/graphics/outdoor.png</resource>
+
 	<resource type="image" id="nophoto" >nophoto</resource>
 	<resource type="image" id="achieve" >achieve</resource>
 	<resource type="image" id="light0" >light0</resource>
@@ -100,27 +102,33 @@
 	<resource type="sound" id="ambient1" radius="0">data/sound/ambient1.mp3</resource>
 	<resource type="sound" id="ambient2" radius="0">data/sound/ambient2.mp3</resource>
 	
-	<resource type="sound" id="item_pickup" radius="0">data/sound/item_pickup.mp3</resource>	
-	
-	<resource type="sound" id="shoot_0" radius="600">data/sound/shoot_0.mp3</resource>
-	<resource type="sound" id="shoot_1" radius="800">data/sound/shoot_1.mp3</resource>
-	<resource type="sound" id="shoot_2" radius="1200">data/sound/shoot_2.mp3</resource>
-	<resource type="sound" id="shoot_3" radius="1200">data/sound/shoot_3.mp3</resource>
-	<resource type="sound" id="shoot_4" radius="1200">data/sound/shoot_4.mp3</resource>
-	<resource type="sound" id="shoot_5" radius="1200">data/sound/shoot_5.mp3</resource>
+	<resource type="sound" id="item_pickup" radius="0" spacesystem="true">data/sound/item_pickup.mp3</resource>	
 
-	<resource type="sound" id="knife_hit0" radius="100">data/sound/knife_hit0.mp3</resource>
-	<resource type="sound" id="knife_hit1" radius="100">data/sound/knife_hit1.mp3</resource>
-	<resource type="sound" id="knife_hit2" radius="100">data/sound/knife_hit2.mp3</resource>
-	<resource type="sound" id="knife_hit3" radius="100">data/sound/knife_hit3.mp3</resource>
+	<resource type="sound" id="door_0_open" radius="600" spacesystem="true">data/sound/door0_open.mp3</resource>
+	<resource type="sound" id="door_0_close" radius="600" spacesystem="true">data/sound/door0_close.mp3</resource>
+	<resource type="sound" id="door_1_open" radius="600" spacesystem="true">data/sound/door1_open.mp3</resource>
+	<resource type="sound" id="door_1_close" radius="600" spacesystem="true">data/sound/door1_close.mp3</resource>
 
-	<resource type="sound" id="knife_slash0" radius="200">data/sound/knife_slash0.mp3</resource>
-	<resource type="sound" id="knife_slash1" radius="200">data/sound/knife_slash1.mp3</resource>
 	
-	<resource type="sound" id="shell_0" radius="100">data/sound/shell_0.mp3</resource>
-	<resource type="sound" id="shell_1" radius="100">data/sound/shell_1.mp3</resource>
-	<resource type="sound" id="shell_2" radius="100">data/sound/shell_2.mp3</resource>
-	<resource type="sound" id="shell_3" radius="100">data/sound/shell_3.mp3</resource>
+	<resource type="sound" id="shoot_0" radius="600" spacesystem="true">data/sound/shoot_0.mp3</resource>
+	<resource type="sound" id="shoot_1" radius="800" spacesystem="true">data/sound/shoot_1.mp3</resource>
+	<resource type="sound" id="shoot_2" radius="1200" spacesystem="true">data/sound/shoot_2.mp3</resource>
+	<resource type="sound" id="shoot_3" radius="1200" spacesystem="true">data/sound/shoot_3.mp3</resource>
+	<resource type="sound" id="shoot_4" radius="1200" spacesystem="true">data/sound/shoot_4.mp3</resource>
+	<resource type="sound" id="shoot_5" radius="1200" spacesystem="true">data/sound/shoot_5.mp3</resource>
+
+	<resource type="sound" id="knife_hit0" radius="100" spacesystem="true">data/sound/knife_hit0.mp3</resource>
+	<resource type="sound" id="knife_hit1" radius="100" spacesystem="true">data/sound/knife_hit1.mp3</resource>
+	<resource type="sound" id="knife_hit2" radius="100" spacesystem="true">data/sound/knife_hit2.mp3</resource>
+	<resource type="sound" id="knife_hit3" radius="100" spacesystem="true">data/sound/knife_hit3.mp3</resource>
+
+	<resource type="sound" id="knife_slash0" radius="200" spacesystem="true">data/sound/knife_slash0.mp3</resource>
+	<resource type="sound" id="knife_slash1" radius="200" spacesystem="true">data/sound/knife_slash1.mp3</resource>
+	
+	<resource type="sound" id="shell_0" radius="100" spacesystem="true">data/sound/shell_0.mp3</resource>
+	<resource type="sound" id="shell_1" radius="100" spacesystem="true">data/sound/shell_1.mp3</resource>
+	<resource type="sound" id="shell_2" radius="100" spacesystem="true">data/sound/shell_2.mp3</resource>
+	<resource type="sound" id="shell_3" radius="100" spacesystem="true">data/sound/shell_3.mp3</resource>
 
 	<resource type="sound" id="step_grass_0" radius="200" spacesystem="true">data/sound/step_grass_0.mp3</resource>
 	<resource type="sound" id="step_grass_1" radius="200" spacesystem="true">data/sound/step_grass_1.mp3</resource>

@@ -53,7 +53,7 @@ public abstract class LiveObject extends PhysicObject implements Hitable{
 	protected int hitTime = 750;
 	protected long deathTime = -1;
 	protected long lastHit;
-//	protected int stepTime = 400;
+
 	public String building = null;
 	protected boolean isDead = false;
 	protected boolean isWalking = false;	
@@ -139,8 +139,6 @@ public abstract class LiveObject extends PhysicObject implements Hitable{
 		return false;
 	}
 
-
-
 	private void setWalking(boolean b) {
 		if (isWalking == b)
 			return;
@@ -214,7 +212,7 @@ public abstract class LiveObject extends PhysicObject implements Hitable{
 			GameState.player.setExp(GameState.player.getExp()
 					+ (getMaxHp()/15));
 			int money = getMaxHp()/5*getLevel() + getStat().defence;
-			money = Math.round(money*getVelocity()*10);
+			money = Math.round(money*getVelocity()*2);
 			GameState.player.getStat().money+= money;
 			GameState.player.getStat().earned+= money;
 			ScoreEffect eff = new ScoreEffect();
@@ -270,11 +268,6 @@ public abstract class LiveObject extends PhysicObject implements Hitable{
 	protected void stepSound() {
 		if (lastStep+stepTime() < TimeManager.getLongTime()){
 			lastStep = TimeManager.getLongTime();
-//			if (Rnd.nextBoolean())
-//				lastStep+=stepTime();
-			
-			if (!Cam.contains(getPos().current))
-				return;
 			String sound = Utils.getSoundForTile(this);
 			SoundUtils.playSound(ResourceManager.getSound(sound+Rnd.nextInt(4)),0.4f,1f+(-0.1f+0.2f*Rnd.nextFloat()), 0, false,pos.current,this);
 		}
@@ -337,8 +330,6 @@ public abstract class LiveObject extends PhysicObject implements Hitable{
 		setBodyActive(false);
 	}
 
-
-
 	public void vehicleExited(Vehicle v) {
 		vehicle.exited(this);
 		vehicle = null;
@@ -351,15 +342,11 @@ public abstract class LiveObject extends PhysicObject implements Hitable{
 	}
 	
 	protected void addToBackground() {
-//		if (Util.rnd.nextBoolean()){
 		ImageEffect eff = new ImageEffect();
 		eff.image = ((Animation2D) current).getFrame(((Animation2D) current).frameCount()-1);
 		eff.setBounds(getX()-getW()/2, getY()-getH()/2, getW(),getH());
 		eff.angle = getA();
 		GameWorld.addEffect(eff);
-//		} else {
-//			toParts(0.1f,dieAnim.getCurrentFrame());
-//		}
 	}
 	
 	@Override
@@ -374,7 +361,6 @@ public abstract class LiveObject extends PhysicObject implements Hitable{
 		int w = region.getRegionWidth();
 		int h = region.getRegionHeight();
 		
-//		batch.draw(region, getX()-getW()/2, getY()-getH()/2, getW()/2, getH()/2, getW()*(w/h), getH()*(w/h), 1, 1, angle);
 		batch.draw(region, getX()-w/2, getY()-h/2, w/2, h/2, w, h, 1, 1, getA());
 	}
 	

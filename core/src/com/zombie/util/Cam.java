@@ -2,6 +2,7 @@ package com.zombie.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -16,7 +17,6 @@ public class Cam {
 	public static OrthographicCamera camera2d;
 	public static Rectangle view = new Rectangle();
 	public static GameObject object;
-	public static float zoom = 1f;
 
 	public static float offsetX;
 	public static float offsetY;
@@ -49,7 +49,7 @@ public class Cam {
 	}
 
 	public static void setZoom(float zoom) {
-		camera2d.zoom = zoom;
+		camera2d.zoom = MathUtils.clamp(camera2d.zoom+zoom, 0.75f, 1.5f);
 	}
 	
 	public static void moveCam() {
@@ -75,16 +75,10 @@ public class Cam {
 				objY = ((LiveObject) object).vehicle.getY();
 			}
 		}
-		float x1,y1;
-		x1 = (offsetX-(objX));
-		y1 = (offsetY-(objY));
-		x1 = Math.round(x1);
-		y1 = Math.round(y1);
+		float x1 = Math.round((offsetX-(objX)));
+		float y1 = Math.round((offsetY-(objY)));
 		offsetX -= x1/8;
 		offsetY -= y1/8;
-		if (zoom <= 0)
-			zoom = 1;
-		Cam.setZoom(zoom);
 		camera2d.position.set(Math.round(offsetX), Math.round(offsetY), 0);
 	}
 
@@ -96,5 +90,12 @@ public class Cam {
 
 	public static boolean contains(Vector2 vector) {
 		return view.contains(vector);
+	}
+
+	public static void zoom(int amount) {
+		if (amount > 0)
+			setZoom(0.05f);
+		else
+			setZoom(-0.05f);
 	}
 }

@@ -135,8 +135,8 @@ public class ActionPicker extends Table {
 		
 		float x = target.getX()-Cam.offsetX;//*;(1/GameState.zoom);
 		float y = target.getY()-Cam.offsetY;//*(1/GameState.zoom);
-		System.out.println(x + "  " + y + "  " + Cam.zoom);
-		float zoom = Cam.zoom;
+		System.out.println(x + "  " + y + "  " + Cam.zoom());
+		float zoom = Cam.zoom();
 		if (zoom < 1)
 			zoom = 1- (1-zoom);
 		else

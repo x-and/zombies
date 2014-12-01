@@ -12,7 +12,7 @@ public class PlayerStat extends LiveStat {
 	public int dies;
 	public int earned;
 	public int skillPoints = 0;
-	public int money = 10000;
+	public int money = 100;
 	public int damage;
 	
 	public PlayerStat(LiveObject live) {

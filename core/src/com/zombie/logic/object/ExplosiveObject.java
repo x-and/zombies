@@ -104,9 +104,10 @@ public class ExplosiveObject extends ItemObject {
 //			float x1 = 3*MathUtils.cos(MathUtils.degreesToRadians*angle);
 //			float y1 = 3*MathUtils.sin(MathUtils.degreesToRadians*angle);
 //			
-//			float velocity = 0.9f+Rnd.nextFloat();
+//			float velocity = 0.2f+Rnd.nextFloat();
 //			Bullet b = new Bullet(getX()+x1,getY()+y1,null,angle,true, new Color(1,0,0, 1), new Color(1,69/255,0,1));
 //			b.damage = 0;
+//			
 //			b.setVelocity(velocity);
 //			b.lifeTime = radius/2+Rnd.nextInt(100)*2;
 //			GameWorld.addObject(b);
@@ -116,7 +117,7 @@ public class ExplosiveObject extends ItemObject {
 	public void blow() {
 		condition.isCompleted = true;
 		//TODO shaking camera when blow explosive in GameState.viewRect
-//		GameState.shake(12,750);
+//		Cam.shake(12,750);
 
 		ParticleEffect em = new ParticleEffect(ResourceManager.getEmitter(explodeParticle));
 		ParticleEmitterBox2DScalable emit = Utils.wrapEmitterToBox2d(em.getEmitters().get(0));

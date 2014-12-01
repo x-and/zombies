@@ -259,9 +259,16 @@ public class Level implements Disposable, TileBasedMap{
 			}
 			
 			String s = (String) obj.getProperties().get("type");
-			eff.type = s;
-			if (s.equalsIgnoreCase("outdoor"))
+			eff.setType(s);
+			if (s.equalsIgnoreCase("outdoor")){
 				TimeManager.addListener(eff);
+				StaticObject z = new StaticObject(eff.getX(), eff.getY());
+				z.setA(eff.angle);
+				z.setSize(16, 16);
+				z.setPhysic("circle", "static", 10);
+				z.setTexture(ResourceManager.getImage("outdoor_light"));
+				GameWorld.addObject(z);
+			}
 			eff.changed(TimeManager.getTime());
 				
 			GameWorld.addEffect(eff);

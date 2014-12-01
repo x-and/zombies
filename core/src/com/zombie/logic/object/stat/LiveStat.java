@@ -5,6 +5,7 @@ import com.zombie.logic.object.LiveObject;
 public class LiveStat extends BasicStat {
 
 	private static final long serialVersionUID = 1L;
+	
 	public LiveStat(LiveObject live) {
 		super(live);
 	}

@@ -12,7 +12,7 @@ import com.manager.TimeManager.TimeChangeListener;
 public class LightEffect extends AbstractEffect implements TimeChangeListener {
 
 	public Light light;
-	public String type;
+	private String type;
 	
 	public boolean permanent = false;
 	long lastTimer = 0;
@@ -59,7 +59,7 @@ public class LightEffect extends AbstractEffect implements TimeChangeListener {
 	}
 
 	public void changed(Time time) {
-		if (type.equalsIgnoreCase("outdoor")){
+		if (getType().equalsIgnoreCase("outdoor")){
 			if (time == Time.DAYTIME)
 				light.setActive(false);
 			if (time == Time.DUSKTIME)
@@ -67,6 +67,14 @@ public class LightEffect extends AbstractEffect implements TimeChangeListener {
 			System.out.println("LightEffect time changed" + time);
 		}
 		
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

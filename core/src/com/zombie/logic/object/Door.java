@@ -4,12 +4,16 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.esotericsoftware.minlog.Log;
 import com.manager.ResourceManager;
+import com.path.Grid;
 import com.physics.BodyFactory;
 import com.zombie.C;
+import com.zombie.logic.GameWorld;
 import com.zombie.logic.enums.ObjectType;
 import com.zombie.logic.object.interfaces.Hitable;
 import com.zombie.logic.object.interfaces.Useable;
 import com.zombie.logic.object.stat.BasicStat;
+import com.zombie.util.Rnd;
+import com.zombie.util.SoundUtils;
 
 public class Door extends PhysicObject implements Useable,Hitable{
 
@@ -42,10 +46,17 @@ public class Door extends PhysicObject implements Useable,Hitable{
 			return;
 		body.getFixtureList().first().setSensor(!isOpened());
 		image = "door1";
-		if (isOpened())
+		
+		Grid grid = GameWorld.level.grid;
+		if (isOpened()) {
 			setTexture(ResourceManager.getImage(image+"_open"));
-		else
+			grid.grid[(int) (getX()/C.TILESIZE)][(int) (getY()/C.TILESIZE)].pass = true;
+			SoundUtils.playSound(ResourceManager.getSound("door_"+Rnd.nextInt(1)+"_open"), 0.4f, 1f, pos.current, this);
+		} else {
 			setTexture(ResourceManager.getImage(image));
+			grid.grid[(int) (getX()/C.TILESIZE)][(int) (getY()/C.TILESIZE)].pass = false;
+			SoundUtils.playSound(ResourceManager.getSound("door_"+Rnd.nextInt(1)+"_close"), 0.4f, 1f, pos.current, this);
+		}
 	}
 	
 	public boolean isOpened(){
@@ -56,6 +67,8 @@ public class Door extends PhysicObject implements Useable,Hitable{
 		body = BodyFactory.createDynamicBox(getX(), getY(), getW(),getH(), 0, 1000, false, 1000); 
 		body.setUserData(this);
 		use();
+		if (Rnd.nextBoolean())
+			use();
 	}
 
 	@Override

@@ -144,6 +144,8 @@ public class StaticObject extends PhysicObject implements Hitable,Searchable{
 			float radius = getW()/2;
 			if (physType.equalsIgnoreCase("dynamic"))
 				body = BodyFactory.createDynamicCircle(getX(),getY(),radius,getA(),density,false, 10f);
+			else
+				body = BodyFactory.createStaticCircle(getX(),getY(),radius,getA(),false, 10f);
 		}
 		body.setUserData(this);
 	}
